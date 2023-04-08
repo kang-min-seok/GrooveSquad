@@ -22,6 +22,8 @@ public class RhythmOrchestra extends JFrame{
 		setVisible(true);
 		
 		introBackground = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+		Music introMusic = new Music("introMusic.mp3",true);
+		introMusic.start();
 	}
 	
 	public void paint(Graphics g) {
