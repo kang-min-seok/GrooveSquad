@@ -131,7 +131,7 @@ public class RhythmOrchestra extends JFrame{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
 				try {
-					Thread.sleep(800);
+					Thread.sleep(300);
 				}catch (InterruptedException ex){
 					ex.printStackTrace();
 				}
