@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,8 +31,6 @@ public class RhythmOrchestra extends JFrame{
 	private ImageIcon rightButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rightButtonEntered.png"));
 	private ImageIcon rightButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rightButtonBasic.png"));
 	
-	private Image titleImage = new ImageIcon(Main.class.getResource("../images/wondersTitleImage.png")).getImage();
-	private Image selectedImage= new ImageIcon(Main.class.getResource("../images/wondersSelectImage.jpg")).getImage();
 	
 	private Image background= new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
@@ -46,6 +45,13 @@ public class RhythmOrchestra extends JFrame{
 	
 	private boolean isMainScreen = false;
 	
+	ArrayList<Track> trackList = new ArrayList<Track>();
+	
+	private Image titleImage; 
+	private Image selectedImage;
+	private Music selectedMusic;
+	private int nowSelected = 0;
+	
 	public RhythmOrchestra() {
 		setUndecorated(true);
 		setTitle("RhythmOrchestra");
@@ -56,7 +62,18 @@ public class RhythmOrchestra extends JFrame{
 		setVisible(true);
 		setBackground(new Color(0,0,0,0));
 		setLayout(null);
+		
+
+		Music introMusic = new Music("introMusic.mp3",true);
+		introMusic.start();
 	
+		trackList.add(new Track("wondersTitleImage.png","wondersSelectImage.jpg",
+					"pianoGameImage.jpg","alex-productions-wonders.mp3","alex-productions-wonders.mp3"));
+		trackList.add(new Track("variatoTitleImage.png","variatioSelectImage.jpg",
+				"pianoGameImage.jpg","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3"));
+		trackList.add(new Track("stringsTitleImage.png","stringsSelectImage.jpg",
+				"pianoGameImage.jpg","One-Love-Emotional-Piano-Strings.mp3","One-Love-Emotional-Piano-Strings.mp3"));
+		
 		exitButton.setBounds(1160, 0, 30, 30);
 		exitButton.setBorderPainted(false);
 		exitButton.setContentAreaFilled(false);
@@ -79,7 +96,7 @@ public class RhythmOrchestra extends JFrame{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
 				try {
-					Thread.sleep(800);
+					Thread.sleep(300);
 				}catch (InterruptedException ex){
 					ex.printStackTrace();
 				}
@@ -109,7 +126,8 @@ public class RhythmOrchestra extends JFrame{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
-				// 게임 시작 이벤트
+				introMusic.close();
+				selectTrack(0);
 				startButton.setVisible(false);
 				quitButton.setVisible(false);
 				leftButton.setVisible(true);
@@ -175,7 +193,7 @@ public class RhythmOrchestra extends JFrame{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
-				//왼쪽 버튼 이벤트
+				selectLeft();
 			}
 		});
 		add(leftButton);
@@ -202,7 +220,7 @@ public class RhythmOrchestra extends JFrame{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
-				//오른쪽 버튼 이벤트
+				selectRight();
 			}
 		});
 		add(rightButton);
@@ -226,8 +244,6 @@ public class RhythmOrchestra extends JFrame{
 		add(menuBar);
 	
 		
-		Music introMusic = new Music("introMusic.mp3",true);
-		introMusic.start();
 	}
 	
 	public void paint(Graphics g) {
@@ -245,5 +261,29 @@ public class RhythmOrchestra extends JFrame{
 		}
 		paintComponents(g);
 		this.repaint();
+	}
+	
+	public void selectTrack(int nowSelected) {
+		if(selectedMusic != null)
+			selectedMusic.close();
+		titleImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getTitleImage())).getImage();
+		selectedImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getStartImage())).getImage();
+		selectedMusic = new Music(trackList.get(nowSelected).getStartMusic(),true);
+		selectedMusic.start();
+	}
+	
+	public void selectLeft() {
+		if(nowSelected == 0)
+			nowSelected = trackList.size() - 1;
+		else
+			nowSelected--;
+		selectTrack(nowSelected);
+	}
+	public void selectRight() {
+		if(nowSelected == trackList.size() -1 )
+			nowSelected = 0;
+		else
+			nowSelected++;
+		selectTrack(nowSelected);
 	}
 }
