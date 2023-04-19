@@ -247,5 +247,7 @@ public class DynamicBeat extends JFrame{
 		}
 		paintComponents(g);
 		this.repaint();
+		
+		
 	}
 }
