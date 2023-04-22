@@ -74,7 +74,7 @@ public class RhythmOrchestra extends JFrame{
 	Music introMusic = new Music("introMusic.mp3",true);
 	private int nowSelected = 0;
 	
-	public static Game game = new Game();
+	public static Game game;
 	
 	public RhythmOrchestra() {
 		setUndecorated(true);
@@ -92,11 +92,11 @@ public class RhythmOrchestra extends JFrame{
 		introMusic.start();
 	
 		trackList.add(new Track("wondersTitleImage.png","wondersSelectImage.jpg",
-					"pianoGameImage.jpg","alex-productions-wonders.mp3","alex-productions-wonders.mp3"));
+					"pianoGameImage.jpg","alex-productions-wonders.mp3","alex-productions-wonders.mp3","alex productions-wonders"));
 		trackList.add(new Track("variatoTitleImage.png","variatioSelectImage.jpg",
-				"pianoGameImage.jpg","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3"));
+				"pianoGameImage.jpg","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3","Kimiko_Ishizaka_-_02_-_Variatio_1_a_1_Clav.mp3","Kimiko Ishizaka-Variatio"));
 		trackList.add(new Track("stringsTitleImage.png","stringsSelectImage.jpg",
-				"pianoGameImage.jpg","One-Love-Emotional-Piano-Strings.mp3","One-Love-Emotional-Piano-Strings.mp3"));
+				"pianoGameImage.jpg","One-Love-Emotional-Piano-Strings.mp3","One-Love-Emotional-Piano-Strings.mp3","Emotional Piano-Strings"));
 		
 		exitButton.setBounds(1160, 0, 30, 30);
 		exitButton.setBorderPainted(false);
@@ -264,7 +264,7 @@ public class RhythmOrchestra extends JFrame{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
-				gameStart(nowSelected,"easy");
+				gameStart(nowSelected,"Easy");
 			}
 		});
 		add(easyButton);
@@ -292,7 +292,7 @@ public class RhythmOrchestra extends JFrame{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3",false);
 				buttonPressedMusic.start();
-				gameStart(nowSelected,"hard");
+				gameStart(nowSelected,"Hard");
 			}
 		});
 		add(hardButton);
@@ -403,6 +403,7 @@ public class RhythmOrchestra extends JFrame{
 		backButton.setVisible(true);
 		isGameScreen = true;
 		setFocusable(true);
+		game = new Game(trackList.get(nowSelected).getTitleName(), difficulty, trackList.get(nowSelected).getGameMusic());
 	}
 	
 	public void backMain() {
@@ -415,6 +416,7 @@ public class RhythmOrchestra extends JFrame{
 		backButton.setVisible(false);
 		selectTrack(nowSelected);	
 		isGameScreen = false;
+		game.close();
 	}
 	public void enterMain() {
 		
