@@ -372,6 +372,11 @@ public class RhythmOrchestra extends JFrame {
 			game.screenDraw(g);
 		}
 		paintComponents(g);
+		try {
+			Thread.sleep(5);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		this.repaint();
 	}
 

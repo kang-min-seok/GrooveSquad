@@ -23,6 +23,9 @@ public class Game extends Thread{
 	private Image noteRouteJImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	private Image noteRouteKImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	private Image noteRouteLImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+	private Image blueFlareImage;
+	private Image judgeImage;
+	
 	
 	private String titleName;
 	private String difficulty;
@@ -69,7 +72,16 @@ public class Game extends Thread{
 		for(int i=0; i< noteList.size();i++)
 		{
 			Note note = noteList.get(i);
-			note.screenDraw(g);
+			if(note.getY()>620) {
+				judgeImage = new ImageIcon(Main.class.getResource("../images/judgeMiss.png")).getImage();
+			}
+			if(!note.isProceeded()) {
+				noteList.remove(i);
+				i--;
+			}
+			else {
+				note.screenDraw(g);
+			}
 		}
 		
 		g.setColor(Color.white);
@@ -89,13 +101,15 @@ public class Game extends Thread{
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 30));
 		g.drawString("000000", 565, 702);
-		
+		g.drawImage(blueFlareImage,250,270,null);
+		g.drawImage(judgeImage,570,420,null);
 	}
 	
 
     
 	
 	public void pressS() {
+		judge("S");
 		noteRouteSImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"S\"),");
 	}
@@ -105,6 +119,7 @@ public class Game extends Thread{
 	}
 	
 	public void pressD() {
+		judge("D");
 		noteRouteDImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"D\"),");
 	}
@@ -113,6 +128,7 @@ public class Game extends Thread{
 		noteRouteDImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 	public void pressF() {
+		judge("F");
 		noteRouteFImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"F\"),");
 	}
@@ -121,6 +137,7 @@ public class Game extends Thread{
 		noteRouteFImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 	public void pressSpace() {
+		judge("Space");
 		noteRouteSpace1Image= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		noteRouteSpace2Image= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"Space\"),");
@@ -132,6 +149,7 @@ public class Game extends Thread{
 
 	}
 	public void pressJ() {
+		judge("J");
 		noteRouteJImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"J\"),");
 	}
@@ -140,6 +158,7 @@ public class Game extends Thread{
 		noteRouteJImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 	public void pressK() {
+		judge("K");
 		noteRouteKImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"K\"),");
 	}
@@ -148,6 +167,7 @@ public class Game extends Thread{
 		noteRouteKImage= new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	}
 	public void pressL() {
+		judge("L");
 		noteRouteLImage= new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat("+getProgressTime()+",\"L\"),");
 	}
@@ -157,16 +177,16 @@ public class Game extends Thread{
 	}
 	@Override
 	public void run() {
-		dropNotes();
+		dropNotes(this.titleName);
 	}
 	public void close() {
 		gameMusic.close();
 		this.interrupt();
 	}
 	
-	public void dropNotes() {
+	public void dropNotes(String TitleName) {
 		Beat[] beats= null;
-		if(titleName.equals("Ditto-NewJeans")) {
+		if(titleName.equals("Ditto-NewJeans") && difficulty.equals("Easy")) {
 			beats = new Beat[] {
 					new Beat(481,"S"),
 					new Beat(1844,"K"),
@@ -662,13 +682,31 @@ public class Game extends Thread{
 					new Beat(183820,"D"),
 			};
 		}
-		else if(titleName.equals("EndTheory-YOUNHA")) {
+		else if(titleName.equals("Ditto-NewJeans")&& difficulty.equals("Hard")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
-		else if(titleName.equals("Still Life-BIGBANG")) {
+		else if(titleName.equals("EndTheory-YOUNHA")&& difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		else if(titleName.equals("EndTheory-YOUNHA")&& difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		else if(titleName.equals("Still Life-BIGBANG")&& difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		else if(titleName.equals("Still Life-BIGBANG")&& difficulty.equals("Hard")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
@@ -676,13 +714,55 @@ public class Game extends Thread{
 		}
 		int i=0;
 		gameMusic.start();
-		while(true) {
+		while(i<beats.length && !isInterrupted()) {
+			boolean dropped =false;
 			if(beats[i].getTime() <= gameMusic.getTime()) {
 				Note note = new Note(beats[i].getNoteName());
 				note.start();
 				noteList.add(note);
 				i++;
+				dropped = true;
 			}
+			if(!dropped) {
+				try {
+					Thread.sleep(5);
+				} catch(Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	public void judge(String input) {
+		for(int i=0; i< noteList.size();i++) {
+			Note note = noteList.get(i);
+			if(input.equals(note.getNoteType())) {
+				judgeEvent(note.judge());
+				break;
+			}
+		}
+	}
+	
+	public void judgeEvent(String judge) {
+		if(!judge.equals("None")) {
+			blueFlareImage = new ImageIcon(Main.class.getResource("../images/blueFlare.png")).getImage();
+		}
+		if(judge.equals("Miss")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeMiss.png")).getImage();
+		}
+		else if(judge.equals("Late")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeLate.png")).getImage();
+		}
+		else if(judge.equals("Good")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
+		}
+		else if(judge.equals("Great")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGreat.png")).getImage();
+		}
+		else if(judge.equals("Perfect")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgePerfect.png")).getImage();
+		}
+		else if(judge.equals("Early")) {
+			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeEarly.png")).getImage();
 		}
 	}
 }
