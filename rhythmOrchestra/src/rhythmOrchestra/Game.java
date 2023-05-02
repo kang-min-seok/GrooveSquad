@@ -6,7 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.swing.ImageIcon;
 
@@ -26,6 +25,8 @@ public class Game extends Thread{
 	private Image blueFlareImage;
 	private Image judgeImage;
 	
+	private Image piano_charecterImage= new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+
 	
 	private String titleName;
 	private String difficulty;
@@ -68,6 +69,8 @@ public class Game extends Thread{
 		g.drawImage(noteRouteLineImage, 1052, 30, null);
 		g.drawImage(gameInfoImage, 0, 660, null);
 		g.drawImage(judgementLineImage, 0, 580, null);
+		g.drawImage(piano_charecterImage, 10, 120, null);
+		
 		
 		for(int i=0; i< noteList.size();i++)
 		{
