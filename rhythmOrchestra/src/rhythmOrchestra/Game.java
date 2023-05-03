@@ -33,6 +33,8 @@ public class Game extends Thread{
 	private String musicTitle;
 	private Music gameMusic;
 	
+	private int score;
+	
 	private long startTime;
     private long endTime;
 	
@@ -103,7 +105,7 @@ public class Game extends Thread{
 		g.drawString("L", 993, 609);
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 30));
-		g.drawString("000000", 565, 702);
+		g.drawString(Integer.toString(score), 565, 702);
 		g.drawImage(blueFlareImage,250,270,null);
 		g.drawImage(judgeImage,570,420,null);
 	}
@@ -757,12 +759,15 @@ public class Game extends Thread{
 		}
 		else if(judge.equals("Good")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
+			score += 100;
 		}
 		else if(judge.equals("Great")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGreat.png")).getImage();
+			score += 300;
 		}
 		else if(judge.equals("Perfect")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgePerfect.png")).getImage();
+			score += 500;
 		}
 		else if(judge.equals("Early")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeEarly.png")).getImage();

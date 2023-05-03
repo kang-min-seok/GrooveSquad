@@ -9,7 +9,7 @@ public class Main {
 	public static final int REACH_TIME = 1000;
 	public static void main(String[] args) {
 		new RhythmOrchestra();
-		 
+		
 	}
 
 }
