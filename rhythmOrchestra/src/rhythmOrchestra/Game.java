@@ -25,13 +25,14 @@ public class Game extends Thread{
 	private Image blueFlareImage;
 	private Image judgeImage;
 	
-	private Image piano_charecterImage= new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+	private Image charecterImage;
 
 	
 	private String titleName;
 	private String difficulty;
 	private String musicTitle;
 	private Music gameMusic;
+	private String instrumentType;
 	
 	private int score;
 	
@@ -40,10 +41,11 @@ public class Game extends Thread{
 	
 	ArrayList<Note> noteList = new ArrayList<Note>();
 	
-	public Game(String titleName, String difficulty, String musicTitle) {
+	public Game(String titleName, String difficulty, String musicTitle, String instrumentType) {
 		this.titleName = titleName;
 		this.difficulty = difficulty;
 		this.musicTitle = musicTitle;
+		this.instrumentType = instrumentType;
 		gameMusic = new Music(this.musicTitle, false);
 		startTime = System.currentTimeMillis();
 	}
@@ -71,7 +73,9 @@ public class Game extends Thread{
 		g.drawImage(noteRouteLineImage, 1052, 30, null);
 		g.drawImage(gameInfoImage, 0, 660, null);
 		g.drawImage(judgementLineImage, 0, 580, null);
-		g.drawImage(piano_charecterImage, 10, 120, null);
+		
+		charecterType(instrumentType);
+		g.drawImage(charecterImage, 10, 120, null);
 		
 		
 		for(int i=0; i< noteList.size();i++)
@@ -191,7 +195,8 @@ public class Game extends Thread{
 	
 	public void dropNotes(String TitleName) {
 		Beat[] beats= null;
-		if(titleName.equals("Ditto-NewJeans") && difficulty.equals("Easy")) {
+		//Ditto 피아노 이지모드 노트
+		if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("piano") && difficulty.equals("Easy")) {
 			beats = new Beat[] {
 					new Beat(481,"S"),
 					new Beat(1844,"K"),
@@ -687,36 +692,126 @@ public class Game extends Thread{
 					new Beat(183820,"D"),
 			};
 		}
-		else if(titleName.equals("Ditto-NewJeans")&& difficulty.equals("Hard")) {
+		//Ditto 피아노 하드모드 노트
+		else if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("piano") && difficulty.equals("Hard")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
-		else if(titleName.equals("EndTheory-YOUNHA")&& difficulty.equals("Easy")) {
+		//Ditto 바이올린 이지모드 노트
+		else if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("violin") && difficulty.equals("Easy")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
-		else if(titleName.equals("EndTheory-YOUNHA")&& difficulty.equals("Hard")) {
+		//Ditto 바이올린 하드모드 노트
+		else if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("violin") && difficulty.equals("Hard")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
-		else if(titleName.equals("Still Life-BIGBANG")&& difficulty.equals("Easy")) {
+		//Ditto 기타 이지모드 노트
+		else if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("guitar") && difficulty.equals("Easy")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
-		else if(titleName.equals("Still Life-BIGBANG")&& difficulty.equals("Hard")) {
+		//Ditto 기타 하드모드 노트
+		else if(titleName.equals("Ditto-NewJeans") &&instrumentType.equals("guitar") && difficulty.equals("Hard")) {
 			int startTime = 1000 - Main.REACH_TIME;
 			beats = new Beat[] {
 				new Beat(startTime,"Space"),	
 			};
 		}
+		//사건의 지평선 피아노 이지모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("piano") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//사건의 지평선 피아노 하드모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("piano") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//사건의 지평선 바이올린 이지모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("violin") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//사건의 지평선 바이올린 하드모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("violin") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//사건의 지평선 기타 이지모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("guitar") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//사건의 지평선 기타 하드모드 노트
+		else if(titleName.equals("EndTheory-YOUNHA") &&instrumentType.equals("guitar") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 피아노 이지모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("piano") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 피아노 하드모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("piano") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 바이올린 이지모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("violin") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 바이올린 하드모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("violin") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 기타 이지모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("guitar") && difficulty.equals("Easy")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		//봄여름가을겨울 기타 하드모드 노트
+		else if(titleName.equals("Still Life-BIGBANG") &&instrumentType.equals("guitar") && difficulty.equals("Hard")) {
+			int startTime = 1000 - Main.REACH_TIME;
+			beats = new Beat[] {
+				new Beat(startTime,"Space"),	
+			};
+		}
+		
 		int i=0;
 		gameMusic.start();
 		while(i<beats.length && !isInterrupted()) {
@@ -744,6 +839,18 @@ public class Game extends Thread{
 				judgeEvent(note.judge());
 				break;
 			}
+		}
+	}
+	
+	public void charecterType(String instrumentType) {
+		if(instrumentType.equals("piano")) {
+			charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+		}
+		else if(instrumentType.equals("violin")) {
+			charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter.png")).getImage();
+		}
+		else if(instrumentType.equals("guitar")) {
+			charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter.png")).getImage();
 		}
 	}
 	

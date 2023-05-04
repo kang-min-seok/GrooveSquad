@@ -88,11 +88,25 @@ public class RhythmOrchestra extends JFrame {
 
 	public RhythmOrchestra() {
 		trackList.add(new Track("dittoTitleImage.png", "dittoSelectImage.jpg", "pianoGameImage.jpg",
-				"ditto_piano_selected.mp3", "ditto_piano.mp3", "Ditto-NewJeans"));
+				"ditto_piano_selected.mp3", "ditto_piano.mp3", "Ditto-NewJeans","piano"));
+		trackList.add(new Track("dittoTitleImage.png", "dittoSelectImage.jpg", "violinGameImage.jpg",
+				"ditto_violin_selected.mp3", "ditto_violin.mp3", "Ditto-NewJeans","violin"));
+		trackList.add(new Track("dittoTitleImage.png", "dittoSelectImage.jpg", "guitarGameImage.jpg",
+				"ditto_guitar_selected.mp3", "ditto_guitar.mp3", "Ditto-NewJeans","guitar"));
+		
 		trackList.add(new Track("endTheoryTitleImage.png", "endTheorySelectImage.jpg", "pianoGameImage.jpg",
-				"endTheory_piano_selected.mp3", "endTheory_piano.mp3", "EndTheory-YOUNHA"));
+				"endTheory_piano_selected.mp3", "endTheory_piano.mp3", "EndTheory-YOUNHA","piano"));
+		trackList.add(new Track("endTheoryTitleImage.png", "endTheorySelectImage.jpg", "violinGameImage.jpg",
+				"endTheory_violin_selected.mp3", "endTheory_violin.mp3", "EndTheory-YOUNHA","violin"));
+		trackList.add(new Track("endTheoryTitleImage.png", "endTheorySelectImage.jpg", "guitarGameImage.jpg",
+				"endTheory_guitar_selected.mp3", "endTheory_guitar.mp3", "EndTheory-YOUNHA","guitar"));
+		
 		trackList.add(new Track("bigbangTitleImage.png", "bigbangSelectImage.jpg", "pianoGameImage.jpg",
-				"bigbang_piano_selected.mp3", "bigbang_piano.mp3", "Still Life-BIGBANG"));
+				"bigbang_piano_selected.mp3", "bigbang_piano.mp3", "Still Life-BIGBANG","piano"));
+		trackList.add(new Track("bigbangTitleImage.png", "bigbangSelectImage.jpg", "violinGameImage.jpg",
+				"bigbang_violin_selected.mp3", "bigbang_violin.mp3", "Still Life-BIGBANG","violin"));
+		trackList.add(new Track("bigbangTitleImage.png", "bigbangSelectImage.jpg", "guitarGameImage.jpg",
+				"bigbang_guitar_selected.mp3", "bigbang_guitar.mp3", "Still Life-BIGBANG","guitar"));
 
 		setUndecorated(true);
 		setTitle("RhythmOrchestra");
@@ -343,6 +357,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				selectPiano();
 			}
 		});
 		add(pianoButton);
@@ -372,6 +387,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				selectViolin();
 			}
 		});
 		add(violinButton);
@@ -401,6 +417,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				selectGuitar();
 			}
 		});
 		add(guitarButton);
@@ -499,20 +516,59 @@ public class RhythmOrchestra extends JFrame {
 
 	public void selectLeft() {
 		if (nowSelected == 0)
+			nowSelected = trackList.size() - 3;
+		else if (nowSelected == 1)
+			nowSelected = trackList.size() - 2;
+		else if (nowSelected == 2)
 			nowSelected = trackList.size() - 1;
 		else
-			nowSelected--;
+			nowSelected-=3;
 		selectTrack(nowSelected);
 	}
 
 	public void selectRight() {
-		if (nowSelected == trackList.size() - 1)
+		if (nowSelected == trackList.size() - 3)
 			nowSelected = 0;
+		else if (nowSelected == trackList.size() - 2)
+			nowSelected = 1;
+		else if (nowSelected == trackList.size() - 1)
+			nowSelected = 2;
 		else
-			nowSelected++;
+			nowSelected+=3;
 		selectTrack(nowSelected);
 	}
+ 
 
+	public void selectPiano() {
+		if (nowSelected == 1 || nowSelected == 2)
+			nowSelected = 0;
+		else if (nowSelected == 4 || nowSelected == 5)
+			nowSelected = 3;
+		else if (nowSelected == 7 || nowSelected == 8)
+			nowSelected = 6;
+		selectTrack(nowSelected);
+	}
+	
+	public void selectViolin() {
+		if (nowSelected == 0 || nowSelected == 2)
+			nowSelected = 1;
+		else if (nowSelected == 3 || nowSelected == 5)
+			nowSelected = 4;
+		else if (nowSelected == 6 || nowSelected == 8)
+			nowSelected = 7;
+		selectTrack(nowSelected);
+	}
+	
+	public void selectGuitar() {
+		if (nowSelected == 0 || nowSelected == 1)
+			nowSelected = 2;
+		else if (nowSelected == 3 || nowSelected == 4)
+			nowSelected = 5;
+		else if (nowSelected == 6 || nowSelected == 7)
+			nowSelected = 8;
+		selectTrack(nowSelected);
+	}
+	
 	public void gameStart(int nowSelected, String difficulty) {
 		if (selectedMusic != null)
 			selectedMusic.close();
@@ -529,7 +585,7 @@ public class RhythmOrchestra extends JFrame {
 		backButton.setVisible(true);
 		isGameScreen = true;
 		game = new Game(trackList.get(nowSelected).getTitleName(), difficulty,
-				trackList.get(nowSelected).getGameMusic());
+				trackList.get(nowSelected).getGameMusic(),trackList.get(nowSelected).getInstrumentType());
 		game.start();
 		setFocusable(true);
 	}
