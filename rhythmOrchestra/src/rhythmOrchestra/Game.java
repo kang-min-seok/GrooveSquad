@@ -26,7 +26,8 @@ public class Game extends Thread{
 	private Image judgeImage;
 	
 	private Image charecterImage;
-
+	private Image comboImage= new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+	
 	
 	private String titleName;
 	private String difficulty;
@@ -114,8 +115,10 @@ public class Game extends Thread{
 		g.drawString(Integer.toString(score), 565, 702);
 		g.setColor(Color.BLACK);
 		g.drawString(Integer.toString(combo), 600, 202);
+		//콤보 이미지 함수 구현 필요
+		//g.drawImage(comboImage,600,202,null);
 		g.drawImage(blueFlareImage,250,270,null);
-		g.drawImage(judgeImage,570,420,null);
+		g.drawImage(judgeImage,550,420,null);
 	}
 	
 
@@ -1338,7 +1341,7 @@ public class Game extends Thread{
 		}
 		if(judge.equals("Late")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeLate.png")).getImage();
-			combo = 0;
+			combo += 1;
 		}
 		else if(judge.equals("Good")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
@@ -1360,7 +1363,7 @@ public class Game extends Thread{
 		}
 		else if(judge.equals("Early")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeEarly.png")).getImage();
-			combo = 0;
+			combo += 1;
 		}
 	}
 	public void comboEvent() {
