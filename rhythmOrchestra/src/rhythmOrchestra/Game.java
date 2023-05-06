@@ -26,7 +26,9 @@ public class Game extends Thread{
 	private Image judgeImage;
 	
 	private Image charecterImage;
-	private Image comboImage= new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+	private Image comboImage1;
+	private Image comboImage2;
+	private Image comboImage3;
 	
 	
 	private String titleName;
@@ -37,6 +39,7 @@ public class Game extends Thread{
 	
 	private int score;
 	private int combo;
+	private boolean comboChk;
 	
 	private long startTime;
     private long endTime;
@@ -113,10 +116,10 @@ public class Game extends Thread{
 		g.setColor(Color.LIGHT_GRAY);
 		g.setFont(new Font("Elephant", Font.BOLD, 30));
 		g.drawString(Integer.toString(score), 565, 702);
-		g.setColor(Color.BLACK);
-		g.drawString(Integer.toString(combo), 600, 202);
-		//콤보 이미지 함수 구현 필요
-		//g.drawImage(comboImage,600,202,null);
+		g.drawImage(comboImage1,540,152,null);
+		g.drawImage(comboImage2,590,152,null);
+		g.drawImage(comboImage3,640,152,null);
+		comboDraw();
 		g.drawImage(blueFlareImage,250,270,null);
 		g.drawImage(judgeImage,550,420,null);
 	}
@@ -1342,28 +1345,33 @@ public class Game extends Thread{
 		if(judge.equals("Late")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeLate.png")).getImage();
 			combo += 1;
+			comboChk = true;
 		}
 		else if(judge.equals("Good")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
 			score += 100;
 			combo += 1;
+			comboChk = true;
 			comboEvent();
 		}
 		else if(judge.equals("Great")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGreat.png")).getImage();
 			score += 300;
 			combo += 1;
+			comboChk = true;
 			comboEvent();
 		}
 		else if(judge.equals("Perfect")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgePerfect.png")).getImage();
 			score += 500;
 			combo += 1;
+			comboChk = true;
 			comboEvent();
 		}
 		else if(judge.equals("Early")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeEarly.png")).getImage();
 			combo += 1;
+			comboChk = true;
 		}
 	}
 	public void comboEvent() {
@@ -1373,6 +1381,34 @@ public class Game extends Thread{
 			score += 100;
 		}else if (combo >= 50) {
 			score += 200;
+		}
+	}
+	
+	public void comboDraw() {
+		if(!comboChk)
+			return;
+		int ones,tens, hundreds;
+
+		comboImage1 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+		comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+		comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+		
+		if(combo < 10) {
+			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img"+combo+".png")).getImage();
+		}
+		else if (combo >=10 && combo <100) {
+			tens = combo/10;
+			ones = combo%10;
+			comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img"+tens+".png")).getImage();
+			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img"+ones+".png")).getImage();
+		}
+		else if (combo >=100 && combo <1000) {
+			hundreds = combo/100;
+			tens = (combo/10)%10;
+			ones = (combo%100)%10;
+			comboImage1 = new ImageIcon(Main.class.getResource("../images/combo_img"+hundreds+".png")).getImage();
+			comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img"+tens+".png")).getImage();
+			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img"+ones+".png")).getImage();
 		}
 	}
 }
