@@ -42,6 +42,12 @@ public class Game extends Thread {
 	private int combo;
 	private int maxCombo;
 	private boolean comboChk;
+	
+	private int perfectChk;
+	private int greatChk;
+	private int goodChk;
+	private int missChk;
+	
 
 	private long startTime;
 	private long endTime;
@@ -91,6 +97,7 @@ public class Game extends Thread {
 				Note note = noteList.get(i);
 				if (note.getY() > 620) {
 					judgeImage = new ImageIcon(Main.class.getResource("../images/judgeMiss.png")).getImage();
+					missChk += 1;
 					combo = 0;
 					maxComboChk();
 				}
@@ -127,12 +134,137 @@ public class Game extends Thread {
 			g.drawImage(blueFlareImage, 250, 270, null);
 			g.drawImage(judgeImage, 550, 420, null);
 		} else if (endChk) {
-			background = new ImageIcon(Main.class.getResource("../images/resultBackground.jpg")).getImage();
-			g.drawImage(background, 0, 0, null);
-			g.setColor(Color.BLACK);
-			g.setFont(new Font("Elephant", Font.BOLD, 100));
-			g.drawString(Integer.toString(score), 590, 152);
-			g.drawString(Integer.toString(maxCombo), 590, 302);
+			if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.drawString(Integer.toString(score), 340, 510);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 25));
+				g.drawString(Integer.toString(perfectChk), 285, 310);
+				g.drawString(Integer.toString(greatChk), 285, 350);
+				g.drawString(Integer.toString(goodChk), 285, 390);
+				g.drawString(Integer.toString(missChk), 285, 430);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.drawString(Integer.toString(maxCombo), 600, 400);
+			}
+			// Ditto 피아노 하드모드 노트
+			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.drawString(Integer.toString(score), 340, 510);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 25));
+				g.drawString(Integer.toString(perfectChk), 285, 310);
+				g.drawString(Integer.toString(greatChk), 285, 350);
+				g.drawString(Integer.toString(goodChk), 285, 390);
+				g.drawString(Integer.toString(missChk), 285, 430);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.drawString(Integer.toString(maxCombo), 600, 400);
+			}
+			// Ditto 바이올린 이지모드 노트
+			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
+				g.drawString(Integer.toString(score), 340, 510);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 25));
+				g.drawString(Integer.toString(perfectChk), 285, 310);
+				g.drawString(Integer.toString(greatChk), 285, 350);
+				g.drawString(Integer.toString(goodChk), 285, 390);
+				g.drawString(Integer.toString(missChk), 285, 430);
+				g.setColor(Color.BLACK);
+				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.drawString(Integer.toString(maxCombo), 600, 400);
+			}
+			// Ditto 바이올린 하드모드 노트
+			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// Ditto 기타 이지모드 노트
+			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// Ditto 기타 하드모드 노트
+			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 피아노 이지모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 피아노 하드모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 바이올린 이지모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 바이올린 하드모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 기타 이지모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar") && difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 사건의 지평선 기타 하드모드 노트
+			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar") && difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 피아노 이지모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")
+					&& difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 피아노 하드모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")
+					&& difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_piano.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 바이올린 이지모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")
+					&& difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 바이올린 하드모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")
+					&& difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_violin.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 기타 이지모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")
+					&& difficulty.equals("Easy")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
+			// 봄여름가을겨울 기타 하드모드 노트
+			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")
+					&& difficulty.equals("Hard")) {
+				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_guitar.png")).getImage();
+				g.drawImage(background, 0, 0, null);
+			}
 		}
 	}
 
@@ -617,6 +749,7 @@ public class Game extends Thread {
 		} else if (judge.equals("Good")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
 			score += 100;
+			goodChk += 1;
 			combo += 1;
 			comboChk = true;
 			comboEvent();
@@ -624,6 +757,7 @@ public class Game extends Thread {
 		} else if (judge.equals("Great")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGreat.png")).getImage();
 			score += 300;
+			greatChk += 1;
 			combo += 1;
 			comboChk = true;
 			comboEvent();
@@ -631,6 +765,7 @@ public class Game extends Thread {
 		} else if (judge.equals("Perfect")) {
 			judgeImage = new ImageIcon(Main.class.getResource("../images/judgePerfect.png")).getImage();
 			score += 500;
+			perfectChk += 1;
 			combo += 1;
 			comboChk = true;
 			comboEvent();
