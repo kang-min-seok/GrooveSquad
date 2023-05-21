@@ -27,6 +27,7 @@ public class Game extends Thread {
 	private Image background;
 
 	private Image charecterImage;
+	private Image charecterBackgroundImage = new ImageIcon(Main.class.getResource("../images/charecterBackground.png")).getImage();
 	private Image comboImage1;
 	private Image comboImage2;
 	private Image comboImage3;
@@ -90,6 +91,7 @@ public class Game extends Thread {
 			g.drawImage(gameInfoImage, 0, 660, null);
 			g.drawImage(judgementLineImage, 0, 580, null);
 
+			g.drawImage(charecterBackgroundImage,5,100,null);
 			charecterType(instrumentType);
 			g.drawImage(charecterImage, 10, 120, null);
 
