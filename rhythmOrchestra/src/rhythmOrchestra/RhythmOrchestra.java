@@ -16,6 +16,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 public class RhythmOrchestra extends JFrame {
 
@@ -29,7 +31,17 @@ public class RhythmOrchestra extends JFrame {
 	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic.png"));
 	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
 	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
+	
+	private ImageIcon loginButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/loginButtonEntered.png"));
+	private ImageIcon loginButtonBasicImage = new ImageIcon(Main.class.getResource("../images/loginButtonBasic.png"));
+	private ImageIcon loginpassButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/loginpassButtonEntered.png"));
+	private ImageIcon loginpassButtonBasicImage = new ImageIcon(Main.class.getResource("../images/loginpassButtonBasic.png"));
 
+	private ImageIcon signupButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/signupButtonEntered.png"));
+	private ImageIcon signupButtonBasicImage = new ImageIcon(Main.class.getResource("../images/signupButtonBasic.png"));
+	private ImageIcon signuppassButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/signuppassButtonEntered.png"));
+	private ImageIcon signuppassButtonBasicImage = new ImageIcon(Main.class.getResource("../images/signuppassButtonBasic.png"));
+	
 	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/leftButtonEntered.png"));
 	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("../images/leftButtonBasic.png"));
 	private ImageIcon rightButtonEnteredImage = new ImageIcon(
@@ -58,6 +70,14 @@ public class RhythmOrchestra extends JFrame {
 	private JButton exitButton = new JButton(exitButtonBasicImage);
 	private JButton startButton = new JButton(startButtonBasicImage);
 	private JButton quitButton = new JButton(quitButtonBasicImage);
+	
+	private JButton loginButton = new JButton(loginButtonBasicImage);
+	private JButton loginpassButton = new JButton(loginpassButtonBasicImage);
+	private JButton signupButton = new JButton(signupButtonBasicImage);
+	private JButton signuppassButton = new JButton(signuppassButtonBasicImage);
+	
+	private JButton backloginButton = new JButton(backButtonBasicImage);
+	private JButton backsignupButton = new JButton(backButtonBasicImage);
 
 	private JButton leftButton = new JButton(leftButtonBasicImage);
 	private JButton rightButton = new JButton(rightButtonBasicImage);
@@ -69,6 +89,13 @@ public class RhythmOrchestra extends JFrame {
 	private JButton pianoButton = new JButton(pianoButtonBasicImage);
 	private JButton violinButton = new JButton(violinButtonBasicImage);
 	private JButton guitarButton = new JButton(guitarButtonBasicImage);
+	
+	 JTextField tfid = new JTextField();
+     JPasswordField tfpw = new JPasswordField();
+     JTextField newid = new JTextField();
+     JPasswordField newpw = new JPasswordField();
+     JPasswordField confirmpw = new JPasswordField();
+     
 	
 	private int mouseX, mouseY;
 
@@ -179,6 +206,7 @@ public class RhythmOrchestra extends JFrame {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				enterMain();
+
 			}
 		});
 		add(startButton);
@@ -215,6 +243,205 @@ public class RhythmOrchestra extends JFrame {
 			}
 		});
 		add(quitButton);
+		//--------------------------------------------------------------------------------------------------
+		 tfid.setBounds(290, 230, 200, 50);
+		 	tfid.setVisible(false);
+	        add(tfid);
+	        tfid.setColumns(20);
+	        
+	     tfpw.setBounds(290, 340, 200, 50);
+	     	tfpw.setVisible(false);
+	        add(tfpw);
+	        
+	     newid.setBounds(290, 230, 200, 50);
+	     	newid.setVisible(false);
+	        add(newid);
+	        
+	     newpw.setBounds(290, 340, 200, 50);
+	     newpw.setVisible(false);
+	        add(newpw);		
+	        
+	     confirmpw.setBounds(290, 450, 200, 50);
+	     confirmpw.setVisible(false);
+	        add(confirmpw);
+		
+		
+		loginButton.setBounds(170, 250, 400, 100);
+		loginButton.setBorderPainted(false);
+		loginButton.setContentAreaFilled(false);
+		loginButton.setFocusPainted(false);
+		loginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				loginButton.setIcon(loginButtonEnteredImage);
+				loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				loginButton.setIcon(loginButtonBasicImage);
+				loginButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				login();
+			}
+		});
+		add(loginButton);
+		
+		loginpassButton.setVisible(false);
+		loginpassButton.setBounds(430, 440, 80, 80);
+		loginpassButton.setBorderPainted(false);
+		loginpassButton.setContentAreaFilled(false);
+		loginpassButton.setFocusPainted(false);
+		loginpassButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				loginpassButton.setIcon(loginpassButtonEnteredImage);
+				loginpassButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				loginpassButton.setIcon(loginpassButtonBasicImage);
+				loginpassButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				enterMain();
+			}
+		});
+		add(loginpassButton);
+		
+		signupButton.setVisible(false);
+		signupButton.setBounds(210, 440, 160, 80);
+		signupButton.setBorderPainted(false);
+		signupButton.setContentAreaFilled(false);
+		signupButton.setFocusPainted(false);
+		signupButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				signupButton.setIcon(signupButtonEnteredImage);
+				signupButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				signupButton.setIcon(signupButtonBasicImage);
+				signupButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				signup();
+			}
+		});
+		add(signupButton);
+		
+		signuppassButton.setVisible(false);
+		signuppassButton.setBounds(480, 160, 80, 30);
+		signuppassButton.setBorderPainted(false);
+		signuppassButton.setContentAreaFilled(false);
+		signuppassButton.setFocusPainted(false);
+		signuppassButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				signuppassButton.setIcon(signuppassButtonEnteredImage);
+				signuppassButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				signuppassButton.setIcon(signuppassButtonBasicImage);
+				signuppassButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				login();
+			}
+		});
+		add(signuppassButton);
+		
+		backloginButton.setVisible(false);
+		backloginButton.setBounds(20, 50, 60, 60);
+		backloginButton.setBorderPainted(false);
+		backloginButton.setContentAreaFilled(false);
+		backloginButton.setFocusPainted(false);
+		backloginButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				backloginButton.setIcon(backButtonEnteredImage);
+				backloginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				backloginButton.setIcon(backButtonBasicImage);
+				backloginButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				StartMenu();
+			}
+		});
+		add(backloginButton);
+		
+		backsignupButton.setVisible(false);
+		backsignupButton.setBounds(20, 50, 60, 60);
+		backsignupButton.setBorderPainted(false);
+		backsignupButton.setContentAreaFilled(false);
+		backsignupButton.setFocusPainted(false);
+		backsignupButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				backsignupButton.setIcon(backButtonEnteredImage);
+				backsignupButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				backsignupButton.setIcon(backButtonBasicImage);
+				backsignupButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				login();
+			}
+		});
+		add(backsignupButton);
+		//--------------------------------------------------------------------------
+		
+		
+		
 
 		leftButton.setVisible(false);
 		leftButton.setBounds(140, 310, 60, 60);
@@ -610,6 +837,12 @@ public class RhythmOrchestra extends JFrame {
 
 		startButton.setVisible(false);
 		quitButton.setVisible(false);
+		loginButton.setVisible(false);
+		tfid.setVisible(false);
+		tfpw.setVisible(false);
+		loginpassButton.setVisible(false);
+		signupButton.setVisible(false);
+		backloginButton.setVisible(false);
 		background = new ImageIcon(Main.class.getResource("../images/mainBackground.jpg")).getImage();
 		isMainScreen = true;
 		leftButton.setVisible(true);
@@ -621,5 +854,53 @@ public class RhythmOrchestra extends JFrame {
 		guitarButton.setVisible(true);
 		introMusic.close();
 		selectTrack(0);
+	}
+	public void login() {
+		
+		startButton.setVisible(false);
+		quitButton.setVisible(false);
+		loginButton.setVisible(false);
+		newid.setVisible(false);
+		newpw.setVisible(false);
+		confirmpw.setVisible(false);
+		signuppassButton.setVisible(false);
+		backsignupButton.setVisible(false);
+		background = new ImageIcon(Main.class.getResource("../images/introBackground(login).jpg")).getImage();
+		tfid.setVisible(true);
+		tfpw.setVisible(true);
+		loginpassButton.setVisible(true);
+		signupButton.setVisible(true);
+		backloginButton.setVisible(true);
+		
+	}
+	public void signup() {
+		
+		tfid.setVisible(false);
+		tfpw.setVisible(false);
+		loginpassButton.setVisible(false);
+		signupButton.setVisible(false);
+		backloginButton.setVisible(false);
+		background = new ImageIcon(Main.class.getResource("../images/introBackground(signup).jpg")).getImage();
+		newid.setVisible(true);
+		newpw.setVisible(true);
+		confirmpw.setVisible(true);
+		signuppassButton.setVisible(true);
+		backsignupButton.setVisible(true);
+	}
+	
+public void StartMenu() {
+		
+		tfid.setVisible(false);
+		tfpw.setVisible(false);
+		loginpassButton.setVisible(false);
+		signupButton.setVisible(false);
+		backloginButton.setVisible(false);
+		background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+		startButton.setVisible(true);
+		quitButton.setVisible(true);
+		loginButton.setVisible(true);
+
+		
+		
 	}
 }
