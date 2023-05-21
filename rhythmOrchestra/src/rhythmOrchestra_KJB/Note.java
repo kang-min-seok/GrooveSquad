@@ -19,6 +19,7 @@ public class Note extends Thread{
 	public boolean isProceeded() {
 		return proceeded;
 	}
+	
 	public void close() {
 		proceeded = false;
 	}

@@ -31,6 +31,7 @@ public class Game extends Thread {
 	private Image comboImage2;
 	private Image comboImage3;
 	
+	
 	private String titleName;
 	private String difficulty;
 	private String musicTitle;

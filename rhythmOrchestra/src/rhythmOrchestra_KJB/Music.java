@@ -26,6 +26,7 @@ public class Music extends Thread{
 		}
 	}
 	
+	
 	public int getTime() {
 		if (player == null)
 			return 0;

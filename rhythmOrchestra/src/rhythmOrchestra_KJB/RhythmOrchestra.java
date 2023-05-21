@@ -25,10 +25,10 @@ public class RhythmOrchestra extends JFrame {
 	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/exitButtonEntered.png"));
 	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/exitButtonBasic.png"));
 	private ImageIcon startButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/startButtonEntered001.png"));
-	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic001.png"));
-	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered001.png"));
-	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic001.png"));
+			Main.class.getResource("../images/startButtonEntered.png"));
+	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic.png"));
+	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
+	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
 
 	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/leftButtonEntered.png"));
 	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("../images/leftButtonBasic.png"));
@@ -52,7 +52,7 @@ public class RhythmOrchestra extends JFrame {
 	private ImageIcon guitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/guitarButtonBasic.png"));
 	
 
-	private Image background = new ImageIcon(Main.class.getResource("../images/StartPage.jpg")).getImage();
+	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	private JButton exitButton = new JButton(exitButtonBasicImage);
