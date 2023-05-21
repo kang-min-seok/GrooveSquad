@@ -26,6 +26,7 @@ public class Music extends Thread{
 		}
 	}
 	
+	
 	public int getTime() {
 		if (player == null)
 			return 0;
@@ -37,6 +38,7 @@ public class Music extends Thread{
 		this.interrupt();
 	}
 	
+	@Override
 	public void run() {
 		try {
 			do {
