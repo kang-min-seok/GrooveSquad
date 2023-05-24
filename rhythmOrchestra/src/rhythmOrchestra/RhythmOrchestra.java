@@ -319,6 +319,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null);
+				tfpw.setText(null);
 				enterMain();
 			}
 		});
@@ -348,6 +350,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null);
+				tfpw.setText(null);
 				signup();
 			}
 		});
@@ -377,6 +381,9 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				newid.setText(null);
+				newpw.setText(null);
+				confirmpw.setText(null);
 				login();
 			}
 		});
@@ -406,6 +413,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null);
+				tfpw.setText(null);
 				StartMenu();
 			}
 		});
@@ -435,6 +444,9 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				newid.setText(null);
+				newpw.setText(null);
+				confirmpw.setText(null);
 				login();
 			}
 		});
