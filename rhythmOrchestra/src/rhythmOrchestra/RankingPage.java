@@ -64,11 +64,11 @@ public class RankingPage extends Thread {
 		}
 		g.drawImage(charecterImage,910,530,null);
 
-		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
-		for(int i=0; i<list.size();i++) {
-			
-		}
-		g.drawString(String.valueOf(list.get(0).getScore()), 125, 150);
+//		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
+//		for(int i=0; i<list.size();i++) {
+//			
+//		}
+//		g.drawString(String.valueOf(list.get(0).getScore()), 125, 150);
 	}
 	
 	@Override
