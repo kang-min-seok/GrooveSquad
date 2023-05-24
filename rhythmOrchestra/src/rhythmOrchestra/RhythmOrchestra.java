@@ -386,7 +386,13 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+<<<<<<< HEAD
 				loginEvent();
+=======
+				tfid.setText(null);
+				tfpw.setText(null);
+				enterMain();
+>>>>>>> branch 'master' of https://github.com/kang-min-seok/grooveSquad.git
 			}
 		});
 		add(loginpassButton);
@@ -415,7 +421,13 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+<<<<<<< HEAD
 				enterJoin();
+=======
+				tfid.setText(null);
+				tfpw.setText(null);
+				signup();
+>>>>>>> branch 'master' of https://github.com/kang-min-seok/grooveSquad.git
 			}
 		});
 		add(signupButton);
@@ -444,7 +456,14 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+<<<<<<< HEAD
 				joinEvent();
+=======
+				newid.setText(null);
+				newpw.setText(null);
+				confirmpw.setText(null);
+				login();
+>>>>>>> branch 'master' of https://github.com/kang-min-seok/grooveSquad.git
 			}
 		});
 		add(signuppassButton);
@@ -473,6 +492,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null);
+				tfpw.setText(null);
 				StartMenu();
 			}
 		});
@@ -502,7 +523,14 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+<<<<<<< HEAD
 				enterLogin();
+=======
+				newid.setText(null);
+				newpw.setText(null);
+				confirmpw.setText(null);
+				login();
+>>>>>>> branch 'master' of https://github.com/kang-min-seok/grooveSquad.git
 			}
 		});
 		add(backsignupButton);
