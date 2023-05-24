@@ -37,6 +37,7 @@ public class Game extends Thread {
 	private String musicTitle;
 	private Music gameMusic;
 	private String instrumentType;
+	private String userID;
 	private boolean endChk = false;
 
 	private int score;
@@ -49,11 +50,23 @@ public class Game extends Thread {
 	private int goodChk;
 	private int missChk;
 	
+	private boolean rankChk=true;
+	
 
 	private long startTime;
 	private long endTime;
 
 	ArrayList<Note> noteList = new ArrayList<Note>();
+
+	public Game(String titleName, String difficulty, String musicTitle, String instrumentType, String userID) {
+		this.titleName = titleName;
+		this.difficulty = difficulty;
+		this.musicTitle = musicTitle;
+		this.instrumentType = instrumentType;
+		this.userID = userID;
+		gameMusic = new Music(this.musicTitle, false);
+		startTime = System.currentTimeMillis();
+	}
 
 	public Game(String titleName, String difficulty, String musicTitle, String instrumentType) {
 		this.titleName = titleName;
@@ -63,7 +76,7 @@ public class Game extends Thread {
 		gameMusic = new Music(this.musicTitle, false);
 		startTime = System.currentTimeMillis();
 	}
-
+	
 	public long getProgressTime() {
 		endTime = System.currentTimeMillis();
 		return endTime - startTime - Main.REACH_TIME;
@@ -976,7 +989,18 @@ public class Game extends Thread {
 	public void endChecking() {
 		if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano") && difficulty.equals("Easy")) {
 			if (getProgressTime() > 188820) {
-				endChk = true;
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
 			}
 		}
 		// Ditto 피아노 하드모드 노트
