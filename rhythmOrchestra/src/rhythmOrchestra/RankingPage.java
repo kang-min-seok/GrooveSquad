@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.ImageIcon;
 
@@ -13,30 +15,15 @@ public class RankingPage extends Thread {
 	private Image background;
 	private Image rankingPageWindowImage = new ImageIcon(Main.class.getResource("../images/rankingPageWindow.png")).getImage();
 	
-	private Image rankEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonEntered.png")).getImage();
-	private Image rankEasyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonBasic.png")).getImage();
-	private Image rankHardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonEntered.png")).getImage();
-	private Image rankHardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonBasic.png")).getImage();
 	
-	private Image rankPianoButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankPianoButtonEntered.png")).getImage();
-	private Image rankPianoButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankPianoButtonBasic.png")).getImage();
-	private Image rankViolinButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankViolinButtonEntered.png")).getImage();
-	private Image rankViolinButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankViolinButtonBasic.png")).getImage();
-	private Image rankGuitarButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankGuitarButtonEntered.png")).getImage();
-	private Image rankGuitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankGuitarButtonBasic.png")).getImage();
 
 	private Image charecterImage;
 	
-	private int rankID;
 	private String songInfo;
 	private String instrumentInfo;
-	private int score;
 	private String difficulty= "Easy";
-	private String userID;
-	public static RankingDAO rankingDAO;
+
+
 	
 	public RankingPage(String songInfo, String instrumentInfo, Image background) {
 		this.songInfo = songInfo;
@@ -50,11 +37,6 @@ public class RankingPage extends Thread {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Elephant", Font.BOLD, 50));
 		g.drawString(songInfo+" ("+difficulty+")", 125, 150);
-		g.drawImage(rankEasyButtonBasicImage,885,120,null);
-		g.drawImage(rankHardButtonBasicImage,885,200,null);
-		g.drawImage(rankPianoButtonBasicImage,885,300,null);
-		g.drawImage(rankViolinButtonBasicImage,885,380,null);
-		g.drawImage(rankGuitarButtonBasicImage,885,460,null);
 		if(instrumentInfo == "piano") {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_piano_charecter.png")).getImage();
 		}else if(instrumentInfo == "violin") {
@@ -63,12 +45,56 @@ public class RankingPage extends Thread {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_guitar_charecter.png")).getImage();
 		}
 		g.drawImage(charecterImage,910,530,null);
-
+		
+		
+		RankingDAO rankingDAO = new RankingDAO();
+		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
+		
+		Collections.sort(list, new Comparator<Ranking>() {
+		    @Override
+		    public int compare(Ranking r1, Ranking r2) {
+		        return Integer.compare(r2.getScore(), r1.getScore()); // 점수를 기준으로 내림차순 정렬
+		    }
+		});
+		
+		
+		int j=280;
+		for(int i=0; i<list.size() ; i++) {
+			if(i>=8) {
+				break;
+			}
+			g.setFont(new Font("Elephant", Font.BOLD, 25));
+			g.drawString(list.get(i).getUserID(), 250, j);
+			g.setFont(new Font("Elephant", Font.BOLD, 40));
+			g.drawString(String.valueOf(list.get(i).getScore()), 480, j);
+			j+=55;
+		}
+		
+		
+		
+		
+		
+		
+		
+//		RankingDAO rankingDAO = new RankingDAO();
 //		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
+//		ArrayList<Integer> scoreList = new ArrayList<Integer>();
+//		ArrayList<String> userList = new ArrayList<String>();
 //		for(int i=0; i<list.size();i++) {
-//			
+//			scoreList.add(list.get(i).getScore());
+//			userList.add(list.get(i).getUserID());
 //		}
-//		g.drawString(String.valueOf(list.get(0).getScore()), 125, 150);
+//		Collections.sort(scoreList, Collections.reverseOrder());
+//		g.setFont(new Font("Elephant", Font.BOLD, 40));
+//		int j=280;
+//		for(int i=0; i<scoreList.size() ; i++) {
+//			if(i>=8) {
+//				break;
+//			}
+//			g.drawString(userList.get(i), 250, j);
+//			g.drawString(String.valueOf(scoreList.get(i)), 480, j);
+//			j+=57;
+//		}
 	}
 	
 	@Override

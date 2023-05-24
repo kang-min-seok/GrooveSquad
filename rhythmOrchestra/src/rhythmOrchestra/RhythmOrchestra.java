@@ -70,7 +70,20 @@ public class RhythmOrchestra extends JFrame {
 	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/backButtonEntered.png"));
 	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("../images/backButtonBasic.png"));
 	
+	private ImageIcon rankEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonEntered.png"));
+	private ImageIcon rankEasyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonBasic.png"));
+	private ImageIcon rankHardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonEntered.png"));
+	private ImageIcon rankHardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonBasic.png"));
 	
+	private ImageIcon rankPianoButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankPianoButtonEntered.png"));
+	private ImageIcon rankPianoButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankPianoButtonBasic.png"));
+	private ImageIcon rankViolinButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankViolinButtonEntered.png"));
+	private ImageIcon rankViolinButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankViolinButtonBasic.png"));
+	private ImageIcon rankGuitarButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankGuitarButtonEntered.png"));
+	private ImageIcon rankGuitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankGuitarButtonBasic.png"));
 
 	private ImageIcon rankingButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankingButtonBasic.png"));
 	private ImageIcon rankingButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankingButtonEntered.png"));
@@ -103,6 +116,13 @@ public class RhythmOrchestra extends JFrame {
 	private JButton backRankingButton = new JButton(backButtonBasicImage);
 	
 	private JButton rankingButton = new JButton(rankingButtonBasicImage);
+	private JButton rankEasyButton = new JButton(rankEasyButtonBasicImage);
+	private JButton rankHardButton = new JButton(rankHardButtonBasicImage);
+
+	private JButton rankPianoButton = new JButton(rankPianoButtonBasicImage);
+	private JButton rankViolinButton = new JButton(rankViolinButtonBasicImage);
+	private JButton rankGuitarButton = new JButton(rankGuitarButtonBasicImage);
+	
 
 	private JButton backStartButton = new JButton(backButtonBasicImage);
 
@@ -715,6 +735,156 @@ public class RhythmOrchestra extends JFrame {
 		add(rankingButton);
 		
 		
+		rankEasyButton.setVisible(false);
+		rankEasyButton.setBounds(885, 120, 190, 65);
+		rankEasyButton.setBorderPainted(false);
+		rankEasyButton.setContentAreaFilled(false);
+		rankEasyButton.setFocusPainted(false);
+		rankEasyButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rankEasyButton.setIcon(rankEasyButtonEnteredImage);
+				rankEasyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rankEasyButton.setIcon(rankEasyButtonBasicImage);
+				rankEasyButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				//gameStart(nowSelected, "Easy");
+			}
+		});
+		add(rankEasyButton);
+
+		rankHardButton.setVisible(false);
+		rankHardButton.setBounds(885, 200, 190, 65);
+		rankHardButton.setBorderPainted(false);
+		rankHardButton.setContentAreaFilled(false);
+		rankHardButton.setFocusPainted(false);
+		rankHardButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rankHardButton.setIcon(rankHardButtonEnteredImage);
+				rankHardButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rankHardButton.setIcon(rankHardButtonBasicImage);
+				rankHardButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				//gameStart(nowSelected, "Hard");
+			}
+		});
+		add(rankHardButton);
+		
+		
+		
+		
+		
+
+		rankPianoButton.setVisible(false);
+		rankPianoButton.setBounds(885, 300, 190, 65);
+		rankPianoButton.setBorderPainted(false);
+		rankPianoButton.setContentAreaFilled(false);
+		rankPianoButton.setFocusPainted(false);
+		rankPianoButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rankPianoButton.setIcon(rankPianoButtonEnteredImage);
+				rankPianoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rankPianoButton.setIcon(rankPianoButtonBasicImage);
+				rankPianoButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				//selectPiano();
+			}
+		});
+		add(rankPianoButton);
+
+		rankViolinButton.setVisible(false);
+		rankViolinButton.setBounds(885, 380, 190, 65);
+		rankViolinButton.setBorderPainted(false);
+		rankViolinButton.setContentAreaFilled(false);
+		rankViolinButton.setFocusPainted(false);
+		rankViolinButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rankViolinButton.setIcon(rankViolinButtonEnteredImage);
+				rankViolinButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rankViolinButton.setIcon(rankViolinButtonBasicImage);
+				rankViolinButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				//selectViolin();
+			}
+		});
+		add(rankViolinButton);
+
+		rankGuitarButton.setVisible(false);
+		rankGuitarButton.setBounds(885, 460, 190, 65);
+		rankGuitarButton.setBorderPainted(false);
+		rankGuitarButton.setContentAreaFilled(false);
+		rankGuitarButton.setFocusPainted(false);
+		rankGuitarButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				rankGuitarButton.setIcon(rankGuitarButtonEnteredImage);
+				rankGuitarButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				rankGuitarButton.setIcon(rankGuitarButtonBasicImage);
+				rankGuitarButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				//selectGuitar();
+			}
+		});
+		add(rankGuitarButton);
+		
 		
 		
 		pianoButton.setVisible(false);
@@ -1215,6 +1385,11 @@ public class RhythmOrchestra extends JFrame {
 		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		backRankingButton.setVisible(true);
+		rankEasyButton.setVisible(true);
+		rankHardButton.setVisible(true);
+		rankPianoButton.setVisible(true);
+		rankViolinButton.setVisible(true);
+		rankGuitarButton.setVisible(true);
 		isRankScreen = true;
 		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), trackList.get(nowSelected).getInstrumentType(),background);
 		
@@ -1223,6 +1398,11 @@ public class RhythmOrchestra extends JFrame {
 	}
 	public void backRankToMain() {
 		isMainScreen = true;
+		rankEasyButton.setVisible(false);
+		rankHardButton.setVisible(false);
+		rankPianoButton.setVisible(false);
+		rankViolinButton.setVisible(false);
+		rankGuitarButton.setVisible(false);
 		leftButton.setVisible(true);
 		rightButton.setVisible(true);
 		easyButton.setVisible(true);

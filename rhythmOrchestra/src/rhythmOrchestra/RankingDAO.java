@@ -13,9 +13,9 @@ public class RankingDAO {
 
 	public RankingDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/rhythmorchestra";
+			String dbURL = "jdbc:mysql://58.232.79.151:3306/mysql05";
 			String dbID = "root";
-			String dbPassword = "root";
+			String dbPassword = "kbc0924";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {
@@ -59,7 +59,7 @@ public class RankingDAO {
 	
 	//랭킹 표시 함수
 	public ArrayList<Ranking> getList(String songInfo, String instrumentInfo, String difficulty) {
-		String SQL = "SELECT * FROM RANKING WHERE songInfo = ? AND instrumentInfo < ? AND difficulty = ? ORDER BY bbsID DESC LIMIT 10";
+		String SQL = "SELECT * FROM RANKING WHERE songInfo = ? AND instrumentInfo = ? AND difficulty = ?";
 		ArrayList<Ranking> list = new ArrayList<Ranking>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);

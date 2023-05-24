@@ -13,9 +13,9 @@ public class UserDAO {
 
 	public UserDAO() {
 		try {
-			String dbURL = "jdbc:mysql://localhost:3306/rhythmorchestra";
+			String dbURL = "jdbc:mysql://58.232.79.151:3306/mysql05";
 			String dbID = "root";
-			String dbPassword = "root";
+			String dbPassword = "kbc0924";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		} catch (Exception e) {

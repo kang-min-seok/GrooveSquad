@@ -1005,79 +1005,298 @@ public class Game extends Thread {
 		}
 		// Ditto 피아노 하드모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// Ditto 바이올린 이지모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin") && difficulty.equals("Easy")) {
-			if (getProgressTime() > 6000) {
-				endChk = true;
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
 			}
 		}
 		// Ditto 바이올린 하드모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// Ditto 기타 이지모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar") && difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// Ditto 기타 하드모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 피아노 이지모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano") && difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 피아노 하드모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 바이올린 이지모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin") && difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 바이올린 하드모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 기타 이지모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar") && difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 사건의 지평선 기타 하드모드 노트
 		else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar") && difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 피아노 이지모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")
 				&& difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 피아노 하드모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")
 				&& difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 바이올린 이지모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")
 				&& difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 바이올린 하드모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")
 				&& difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 기타 이지모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")
 				&& difficulty.equals("Easy")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 		// 봄여름가을겨울 기타 하드모드 노트
 		else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")
 				&& difficulty.equals("Hard")) {
-
+			if (getProgressTime() > 188820) {
+				if(userID != null && rankChk) {
+					RankingDAO rankingDAO = new RankingDAO();
+					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
+					System.out.println("ranking success");
+					rankChk = false;
+					endChk = true;
+					if (result == -1) {
+						System.out.println("ranking failed");
+					}
+				}else if(userID == null){
+					endChk = true;
+				}
+			}
 		}
 	}
 }
