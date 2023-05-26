@@ -22,7 +22,7 @@ public class RankingPage extends Thread {
 	private String songInfo;
 	private String instrumentInfo;
 	private String difficulty;
-
+	ArrayList<Ranking> list;
 
 	
 	public RankingPage(String songInfo, String instrumentInfo, Image background, String difficulty) {
@@ -30,6 +30,15 @@ public class RankingPage extends Thread {
 		this.instrumentInfo = instrumentInfo;
 		this.background = background;
 		this.difficulty = difficulty;
+		RankingDAO rankingDAO = new RankingDAO();
+		list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
+		
+		Collections.sort(list, new Comparator<Ranking>() {
+		    @Override
+		    public int compare(Ranking r1, Ranking r2) {
+		        return Integer.compare(r2.getScore(), r1.getScore()); // 점수를 기준으로 내림차순 정렬
+		    }
+		});
 	}
 	public void screenDraw(Graphics2D g) {
 		g.drawImage(background, 0, 0, null);
@@ -46,18 +55,6 @@ public class RankingPage extends Thread {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_guitar_charecter.png")).getImage();
 		}
 		g.drawImage(charecterImage,910,530,null);
-		
-		
-		RankingDAO rankingDAO = new RankingDAO();
-		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
-		
-		Collections.sort(list, new Comparator<Ranking>() {
-		    @Override
-		    public int compare(Ranking r1, Ranking r2) {
-		        return Integer.compare(r2.getScore(), r1.getScore()); // 점수를 기준으로 내림차순 정렬
-		    }
-		});
-		
 		
 		int j=280;
 		for(int i=0; i<list.size() ; i++) {

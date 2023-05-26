@@ -25,8 +25,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-public class RhythmOrchestra extends JFrame implements Serializable{
-    private static final long serialVersionUID = 1L;
+public class RhythmOrchestra extends JFrame{
 
 	private Image screenImage;
 	private Graphics screenGraphic;
@@ -72,6 +71,13 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 	private ImageIcon easyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/easyButtonBasic.png"));
 	private ImageIcon hardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/hardButtonEntered.png"));
 	private ImageIcon hardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/hardButtonBasic.png"));
+	
+	private ImageIcon highScoreEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/highScoreEasyButtonEntered.png"));
+	private ImageIcon highScoreEasyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/highScoreEasyButtonBasic.png"));
+	private ImageIcon highScoreHardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/highScoreHardButtonEntered.png"));
+	private ImageIcon highScoreHardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/highScoreHardButtonBasic.png"));
+	
+	
 
 	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/backButtonEntered.png"));
 	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("../images/backButtonBasic.png"));
@@ -114,6 +120,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 	private ImageIcon guitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/guitarButtonBasic.png"));
 
 	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+	private Image highScoreBackgroundImage = new ImageIcon(Main.class.getResource("../images/highScoreBackground.png")).getImage();
 	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
 
 	private JButton exitButton = new JButton(exitButtonBasicImage);
@@ -146,6 +153,10 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 	private JButton easyButton = new JButton(easyButtonBasicImage);
 	private JButton hardButton = new JButton(hardButtonBasicImage);
 	private JButton backButton = new JButton(backButtonBasicImage);
+	
+	private JButton highScoreEasyButton = new JButton(highScoreEasyButtonEnteredImage);
+	private JButton highScoreHardButton = new JButton(highScoreHardButtonBasicImage);
+	
 
 	private JButton pianoButton = new JButton(pianoButtonBasicImage);
 	private JButton violinButton = new JButton(violinButtonBasicImage);
@@ -177,6 +188,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 	private int nowSelected = 0;
 	private String rankDifficulty = "Easy";
 	private String rankInstrument;
+	private String highScoreDifficulty = "Easy";
+	private int highScore;
 
 	public static Game game;
 	public static RankingPage rankingPage;
@@ -417,6 +430,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				loginEvent();
+				updateHighScore();
 			}
 		});
 		add(loginpassButton);
@@ -631,6 +645,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectLeft();
+				updateHighScore();
 			}
 		});
 		add(leftButton);
@@ -660,6 +675,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectRight();
+				updateHighScore();
 			}
 		});
 		add(rightButton);
@@ -721,6 +737,76 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 			}
 		});
 		add(hardButton);
+		
+		
+		
+		
+		
+		highScoreEasyButton.setVisible(false);
+		highScoreEasyButton.setBounds(240, 450, 110, 35);
+		highScoreEasyButton.setBorderPainted(false);
+		highScoreEasyButton.setContentAreaFilled(false);
+		highScoreEasyButton.setFocusPainted(false);
+		highScoreEasyButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				highScoreEasyButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				highScoreEasyButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				highScoreEasyButton.setIcon(highScoreEasyButtonEnteredImage);
+				highScoreHardButton.setIcon(highScoreHardButtonBasicImage);
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				highScoreDifficulty = "Easy";
+				updateHighScore();
+			}
+		});
+		add(highScoreEasyButton);
+
+		highScoreHardButton.setVisible(false);
+		highScoreHardButton.setBounds(240, 490, 110, 35);
+		highScoreHardButton.setBorderPainted(false);
+		highScoreHardButton.setContentAreaFilled(false);
+		highScoreHardButton.setFocusPainted(false);
+		highScoreHardButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				highScoreHardButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
+				buttonEnteredMusic.start();
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				highScoreHardButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				highScoreEasyButton.setIcon(highScoreEasyButtonBasicImage);
+				highScoreHardButton.setIcon(highScoreHardButtonEnteredImage);
+				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
+				buttonPressedMusic.start();
+				highScoreDifficulty = "Hard";
+				updateHighScore();
+			}
+		});
+		add(highScoreHardButton);
+		
+		
+		
+		
+		
+		
 
 		rankingButton.setVisible(false);
 		rankingButton.setBounds(840, 460, 180, 70);
@@ -921,6 +1007,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectPiano();
+				updateHighScore();
 			}
 		});
 		add(pianoButton);
@@ -950,6 +1037,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectViolin();
+				updateHighScore();
 			}
 		});
 		add(violinButton);
@@ -979,6 +1067,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectGuitar();
+				updateHighScore();
 			}
 		});
 		add(guitarButton);
@@ -1007,6 +1096,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				updateHighScore();
 				backMain();
 			}
 		});
@@ -1038,7 +1128,7 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		screenDraw((Graphics2D) screenGraphic);
 		g.drawImage(screenImage, 0, 0, null);
 	}
-
+	
 	// 화면 그리는 함수
 	public void screenDraw(Graphics2D g) {
 		g.drawImage(background, 0, 0, null);
@@ -1048,6 +1138,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 				g.setFont(new Font("Arial", Font.BOLD, 30));
 				g.setColor(Color.WHITE);
 				g.drawString(userName, 30, 95);
+				g.drawImage(highScoreBackgroundImage, 96, 440, null);
+				g.drawString(Integer.toString(highScore), 100, 520);
 			}
 			g.drawImage(selectedImage, 375, 100, null);
 			g.drawImage(titleImage, 375, 70, null);
@@ -1152,6 +1244,10 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		rightButton.setVisible(false);
 		easyButton.setVisible(false);
 		hardButton.setVisible(false);
+		if(loginChk == true) {
+			highScoreEasyButton.setVisible(false);
+			highScoreHardButton.setVisible(false);
+		}
 		rankingButton.setVisible(false);
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
@@ -1187,6 +1283,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		if (!loginChk) {
 			backStartButton.setVisible(true);
 		} else if (loginChk) {
+			highScoreEasyButton.setVisible(true);
+			highScoreHardButton.setVisible(true);
 			logoutButton.setVisible(true);
 		}
 		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
@@ -1268,6 +1366,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 			rightButton.setVisible(true);
 			easyButton.setVisible(true);
 			hardButton.setVisible(true);
+			highScoreEasyButton.setVisible(true);
+			highScoreHardButton.setVisible(true);
 			rankingButton.setVisible(true);
 			pianoButton.setVisible(true);
 			violinButton.setVisible(true);
@@ -1341,6 +1441,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		rightButton.setVisible(false);
 		easyButton.setVisible(false);
 		hardButton.setVisible(false);
+		highScoreEasyButton.setVisible(false);
+		highScoreHardButton.setVisible(false);
 		rankingButton.setVisible(false);
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
@@ -1436,6 +1538,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		rightButton.setVisible(false);
 		easyButton.setVisible(false);
 		hardButton.setVisible(false);
+		highScoreEasyButton.setVisible(false);
+		highScoreHardButton.setVisible(false);
 		rankingButton.setVisible(false);
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
@@ -1476,6 +1580,8 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 			backStartButton.setVisible(true);
 		} else if (loginChk) {
 			logoutButton.setVisible(true);
+			highScoreEasyButton.setVisible(true);
+			highScoreHardButton.setVisible(true);
 		}
 		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
@@ -1534,5 +1640,13 @@ public class RhythmOrchestra extends JFrame implements Serializable{
 		rankingPage.start();
 		setFocusable(true);
 	}
-
+	public void updateHighScore() {
+	    RankingDAO rankingDAO = new RankingDAO();
+	    ArrayList<Ranking> list = rankingDAO.getHighScore(trackList.get(nowSelected).getTitleName(), trackList.get(nowSelected).getInstrumentType(), highScoreDifficulty, userName);
+	    if(list.isEmpty()) {
+	        highScore = 0;
+	    } else {
+	        highScore = list.get(0).getScore();
+	    }
+	}
 }

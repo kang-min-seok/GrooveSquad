@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.ImageIcon;
 
@@ -22,6 +24,7 @@ public class Game extends Thread {
 	private Image noteRouteJImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	private Image noteRouteKImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
 	private Image noteRouteLImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+	private Image highScoreChkImage = new ImageIcon(Main.class.getResource("../images/highScoreChk.png")).getImage();
 	private Image blueFlareImage;
 	private Image judgeImage;
 	private Image background;
@@ -51,6 +54,8 @@ public class Game extends Thread {
 	private int missChk;
 	
 	private boolean rankChk=true;
+	private int highScore;
+	private boolean highScoreChk=false;
 	
 
 	private long startTime;
@@ -151,281 +156,75 @@ public class Game extends Thread {
 		} else if (endChk) {
 			if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_piano.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// Ditto 바이올린 이지모드 노트
 			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_violin.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}  
 			// Ditto 기타 이지모드 노트
 			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_guitar.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 사건의 지평선 피아노 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_piano.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 사건의 지평선 바이올린 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_violin.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 사건의 지평선 기타 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_guitar.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=20) {
-					g.drawString("S", 630,590);
-				}else if (missChk >20 && missChk <=30) {
-					g.drawString("A", 630,590);
-				}else if (missChk >40 && missChk <=50) {
-					g.drawString("B", 630,590);
-				}else if (missChk >60 && missChk <=70) {
-					g.drawString("C", 630,590);
-				}else if (missChk >70 && missChk <=80) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 봄여름가을겨울 피아노 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_piano.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 봄여름가을겨울 바이올린 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_violin.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
 			
 			// 봄여름가을겨울 기타 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")) {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_guitar.png")).getImage();
-				g.drawImage(background, 0, 0, null);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(score), 340, 510);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 25));
-				g.drawString(Integer.toString(perfectChk), 285, 310);
-				g.drawString(Integer.toString(greatChk), 285, 350);
-				g.drawString(Integer.toString(goodChk), 285, 390);
-				g.drawString(Integer.toString(missChk), 285, 430);
-				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 70));
-				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
-					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
-					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
-					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
-					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
-					g.drawString("D", 630,590);
-				}else{
-					g.drawString("F", 630,590);
-				}
 			}
-			
+			g.drawImage(background, 0, 0, null);
+			g.setColor(Color.BLACK);
+			g.setFont(new Font("Elephant", Font.BOLD, 70));
+			g.drawString(Integer.toString(score), 340, 510);
+			g.setColor(Color.BLACK);
+			g.setFont(new Font("Elephant", Font.BOLD, 25));
+			g.drawString(Integer.toString(perfectChk), 285, 310);
+			g.drawString(Integer.toString(greatChk), 285, 350);
+			g.drawString(Integer.toString(goodChk), 285, 390);
+			g.drawString(Integer.toString(missChk), 285, 430);
+			g.setColor(Color.BLACK);
+			g.setFont(new Font("Elephant", Font.BOLD, 70));
+			g.drawString(Integer.toString(maxCombo), 600, 400);
+			if (missChk <=5) {
+				g.drawString("S", 630,590);
+			}else if (missChk >5 && missChk <=10) {
+				g.drawString("A", 630,590);
+			}else if (missChk >10 && missChk <=15) {
+				g.drawString("B", 630,590);
+			}else if (missChk >15 && missChk <=20) {
+				g.drawString("C", 630,590);
+			}else if (missChk >20 && missChk <=25) {
+				g.drawString("D", 630,590);
+			}else{
+				g.drawString("F", 630,590);
+			}
+			if (highScoreChk == true) {
+				g.drawImage(highScoreChkImage, 380, 98, null);
+			}
 		}
 	}
 
@@ -1023,6 +822,13 @@ public class Game extends Thread {
 					System.out.println("ranking success");
 					rankChk = false;
 					endChk = true;
+					ArrayList<Ranking> list = rankingDAO.getHighScore(titleName, instrumentType, difficulty, userID);
+					
+					highScore = list.get(0).getScore();
+					if(highScore >= score) {
+						highScoreChk = true;
+					}
+					
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
@@ -1036,6 +842,13 @@ public class Game extends Thread {
 			if (getProgressTime() > 188820) {
 				if(userID != null && rankChk) {
 					RankingDAO rankingDAO = new RankingDAO();
+					ArrayList<Ranking> list = rankingDAO.getHighScore(titleName, instrumentType, difficulty, userID);
+					
+					highScore = list.get(0).getScore();
+					if(highScore > score) {
+						highScoreChk = true;
+					}
+					
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
@@ -1326,5 +1139,6 @@ public class Game extends Thread {
 				}
 			}
 		}
+		
 	}
 }
