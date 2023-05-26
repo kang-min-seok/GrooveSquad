@@ -21,14 +21,15 @@ public class RankingPage extends Thread {
 	
 	private String songInfo;
 	private String instrumentInfo;
-	private String difficulty= "Easy";
+	private String difficulty;
 
 
 	
-	public RankingPage(String songInfo, String instrumentInfo, Image background) {
+	public RankingPage(String songInfo, String instrumentInfo, Image background, String difficulty) {
 		this.songInfo = songInfo;
 		this.instrumentInfo = instrumentInfo;
 		this.background = background;
+		this.difficulty = difficulty;
 	}
 	public void screenDraw(Graphics2D g) {
 		g.drawImage(background, 0, 0, null);
@@ -69,32 +70,6 @@ public class RankingPage extends Thread {
 			g.drawString(String.valueOf(list.get(i).getScore()), 480, j);
 			j+=55;
 		}
-		
-		
-		
-		
-		
-		
-		
-//		RankingDAO rankingDAO = new RankingDAO();
-//		ArrayList<Ranking> list = rankingDAO.getList(songInfo, instrumentInfo, difficulty);
-//		ArrayList<Integer> scoreList = new ArrayList<Integer>();
-//		ArrayList<String> userList = new ArrayList<String>();
-//		for(int i=0; i<list.size();i++) {
-//			scoreList.add(list.get(i).getScore());
-//			userList.add(list.get(i).getUserID());
-//		}
-//		Collections.sort(scoreList, Collections.reverseOrder());
-//		g.setFont(new Font("Elephant", Font.BOLD, 40));
-//		int j=280;
-//		for(int i=0; i<scoreList.size() ; i++) {
-//			if(i>=8) {
-//				break;
-//			}
-//			g.drawString(userList.get(i), 250, j);
-//			g.drawString(String.valueOf(scoreList.get(i)), 480, j);
-//			j+=57;
-//		}
 	}
 	
 	@Override

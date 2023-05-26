@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class RankingDAO {
 	private Connection conn;
-	private PreparedStatement pstmt;
 	private ResultSet rs;
 
 	public RankingDAO() {
@@ -57,7 +56,7 @@ public class RankingDAO {
 		return -1; // 데이터베이스 오류
 	}
 	
-	//랭킹 표시 함수
+	//랭킹정보 가져와서 ArrayList에 저장하는 함수
 	public ArrayList<Ranking> getList(String songInfo, String instrumentInfo, String difficulty) {
 		String SQL = "SELECT * FROM RANKING WHERE songInfo = ? AND instrumentInfo = ? AND difficulty = ?";
 		ArrayList<Ranking> list = new ArrayList<Ranking>();

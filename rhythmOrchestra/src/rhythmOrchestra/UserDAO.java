@@ -40,7 +40,7 @@ public class UserDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return -2;
+		return -2; //데이터베이스 오류
 	}
 
 	public int join(User user) {

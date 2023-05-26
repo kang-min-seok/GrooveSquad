@@ -83,7 +83,7 @@ public class Note extends Thread{
 		}
 	}
 	public String judge() {
-		if(y>=613) {
+		if(y>=623) {
 			close();
 			return "Late";
 		}

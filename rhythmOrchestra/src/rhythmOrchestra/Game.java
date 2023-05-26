@@ -153,7 +153,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_piano.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -162,7 +162,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -184,7 +184,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_violin.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -193,7 +193,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -214,7 +214,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_guitar.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -223,7 +223,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -245,7 +245,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_piano.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -254,7 +254,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -276,7 +276,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_violin.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -285,7 +285,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -307,7 +307,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_guitar.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -316,17 +316,17 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
-				if (missChk <=5) {
+				if (missChk <=20) {
 					g.drawString("S", 630,590);
-				}else if (missChk >5 && missChk <=10) {
+				}else if (missChk >20 && missChk <=30) {
 					g.drawString("A", 630,590);
-				}else if (missChk >10 && missChk <=15) {
+				}else if (missChk >40 && missChk <=50) {
 					g.drawString("B", 630,590);
-				}else if (missChk >15 && missChk <=20) {
+				}else if (missChk >60 && missChk <=70) {
 					g.drawString("C", 630,590);
-				}else if (missChk >20 && missChk <=25) {
+				}else if (missChk >70 && missChk <=80) {
 					g.drawString("D", 630,590);
 				}else{
 					g.drawString("F", 630,590);
@@ -338,7 +338,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_piano.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -347,7 +347,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -369,7 +369,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_violin.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -378,7 +378,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -400,7 +400,7 @@ public class Game extends Thread {
 				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_guitar.png")).getImage();
 				g.drawImage(background, 0, 0, null);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(score), 340, 510);
 				g.setColor(Color.BLACK);
 				g.setFont(new Font("Elephant", Font.BOLD, 25));
@@ -409,7 +409,7 @@ public class Game extends Thread {
 				g.drawString(Integer.toString(goodChk), 285, 390);
 				g.drawString(Integer.toString(missChk), 285, 430);
 				g.setColor(Color.BLACK);
-				g.setFont(new Font("Elephant", Font.BOLD, 100));
+				g.setFont(new Font("Elephant", Font.BOLD, 70));
 				g.drawString(Integer.toString(maxCombo), 600, 400);
 				if (missChk <=5) {
 					g.drawString("S", 630,590);
@@ -890,10 +890,38 @@ public class Game extends Thread {
 	public void charecterType(String instrumentType) {
 		if (instrumentType.equals("piano")) {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+			if(comboChk == true) {
+				if(combo>=0 && combo < 5) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter_sad.png")).getImage();
+				}else if(combo>5 && combo<10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+				}else if(combo>10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter_smile.png")).getImage();
+				}
+			}
 		} else if (instrumentType.equals("violin")) {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter.png")).getImage();
+			if(comboChk == true) {
+				if(combo>=0 && combo < 5) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter_sad.png")).getImage();
+				}else if(combo>5 && combo<10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter.png")).getImage();
+				}else if(combo>10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter_smile.png")).getImage();
+				}
+			}
+			
 		} else if (instrumentType.equals("guitar")) {
 			charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter.png")).getImage();
+			if(comboChk == true) {
+				if(combo>=0 && combo < 5) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter_sad.png")).getImage();
+				}else if(combo>5 && combo<10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter.png")).getImage();
+				}else if(combo>10) {
+					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter_smile.png")).getImage();
+				}
+			}
 		}
 	}
 
@@ -941,11 +969,11 @@ public class Game extends Thread {
 
 	// 콤보수 높아지면 점수 더 많이 얻을 수 있는 함수
 	public void comboEvent() {
-		if (combo >= 10 && combo < 30) {
+		if (combo > 10 && combo < 20) {
 			score += 50;
-		} else if (combo >= 30 && combo < 50) {
+		} else if (combo > 20 && combo < 30) {
 			score += 100;
-		} else if (combo >= 50) {
+		} else if (combo > 30) {
 			score += 200;
 		}
 		
@@ -1039,7 +1067,7 @@ public class Game extends Thread {
 		}
 		// Ditto 바이올린 하드모드 노트
 		else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin") && difficulty.equals("Hard")) {
-			if (getProgressTime() > 188820) {
+			if (getProgressTime() > 186071) {
 				if(userID != null && rankChk) {
 					RankingDAO rankingDAO = new RankingDAO();
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);

@@ -1,25 +1,32 @@
 package rhythmOrchestra;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GridBagLayout;
 import java.awt.Image;
-import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
-public class RhythmOrchestra extends JFrame {
+public class RhythmOrchestra extends JFrame implements Serializable{
+    private static final long serialVersionUID = 1L;
 
 	private Image screenImage;
 	private Graphics screenGraphic;
@@ -34,20 +41,19 @@ public class RhythmOrchestra extends JFrame {
 
 	private ImageIcon loginButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/loginButtonEntered.png"));
-	
-	private ImageIcon logoutButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/logoutButtonBasic.png"));
+
+	private ImageIcon logoutButtonBasicImage = new ImageIcon(Main.class.getResource("../images/logoutButtonBasic.png"));
 	private ImageIcon logoutButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/logoutButtonEntered.png"));
-	
-	
+
 	private ImageIcon loginButtonBasicImage = new ImageIcon(Main.class.getResource("../images/loginButtonBasic.png"));
 	private ImageIcon loginpassButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/loginpassButtonEntered.png"));
 	private ImageIcon loginpassButtonBasicImage = new ImageIcon(
 			Main.class.getResource("../images/loginpassButtonBasic.png"));
-	
-	private Image userNameBackgroundImage = new ImageIcon(Main.class.getResource("../images/userNameBackground.png")).getImage();
+
+	private Image userNameBackgroundImage = new ImageIcon(Main.class.getResource("../images/userNameBackground.png"))
+			.getImage();
 	private ImageIcon signupButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/signupButtonEntered.png"));
 	private ImageIcon signupButtonBasicImage = new ImageIcon(Main.class.getResource("../images/signupButtonBasic.png"));
@@ -69,24 +75,33 @@ public class RhythmOrchestra extends JFrame {
 
 	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/backButtonEntered.png"));
 	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("../images/backButtonBasic.png"));
-	
-	private ImageIcon rankEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonEntered.png"));
-	private ImageIcon rankEasyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankEasyButtonBasic.png"));
-	private ImageIcon rankHardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonEntered.png"));
-	private ImageIcon rankHardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankHardButtonBasic.png"));
-	
+
+	private ImageIcon rankEasyButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankEasyButtonEntered.png"));
+	private ImageIcon rankEasyButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankEasyButtonBasic.png"));
+	private ImageIcon rankHardButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankHardButtonEntered.png"));
+	private ImageIcon rankHardButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankHardButtonBasic.png"));
+
 	private ImageIcon rankPianoButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/rankPianoButtonEntered.png"));
-	private ImageIcon rankPianoButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankPianoButtonBasic.png"));
+	private ImageIcon rankPianoButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankPianoButtonBasic.png"));
 	private ImageIcon rankViolinButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/rankViolinButtonEntered.png"));
-	private ImageIcon rankViolinButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankViolinButtonBasic.png"));
+	private ImageIcon rankViolinButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankViolinButtonBasic.png"));
 	private ImageIcon rankGuitarButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/rankGuitarButtonEntered.png"));
-	private ImageIcon rankGuitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankGuitarButtonBasic.png"));
+	private ImageIcon rankGuitarButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankGuitarButtonBasic.png"));
 
-	private ImageIcon rankingButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rankingButtonBasic.png"));
-	private ImageIcon rankingButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/rankingButtonEntered.png"));
+	private ImageIcon rankingButtonBasicImage = new ImageIcon(
+			Main.class.getResource("../images/rankingButtonBasic.png"));
+	private ImageIcon rankingButtonEnteredImage = new ImageIcon(
+			Main.class.getResource("../images/rankingButtonEntered.png"));
 
 	private ImageIcon pianoButtonEnteredImage = new ImageIcon(
 			Main.class.getResource("../images/pianoButtonEntered.png"));
@@ -114,7 +129,7 @@ public class RhythmOrchestra extends JFrame {
 	private JButton backloginButton = new JButton(backButtonBasicImage);
 	private JButton backsignupButton = new JButton(backButtonBasicImage);
 	private JButton backRankingButton = new JButton(backButtonBasicImage);
-	
+
 	private JButton rankingButton = new JButton(rankingButtonBasicImage);
 	private JButton rankEasyButton = new JButton(rankEasyButtonBasicImage);
 	private JButton rankHardButton = new JButton(rankHardButtonBasicImage);
@@ -122,7 +137,6 @@ public class RhythmOrchestra extends JFrame {
 	private JButton rankPianoButton = new JButton(rankPianoButtonBasicImage);
 	private JButton rankViolinButton = new JButton(rankViolinButtonBasicImage);
 	private JButton rankGuitarButton = new JButton(rankGuitarButtonBasicImage);
-	
 
 	private JButton backStartButton = new JButton(backButtonBasicImage);
 
@@ -158,9 +172,11 @@ public class RhythmOrchestra extends JFrame {
 	private boolean backChk = false;
 
 	private String userName;
-	private boolean loginChk=false;
+	private boolean loginChk = false;
 	Music introMusic = new Music("introMusic.mp3", true);
 	private int nowSelected = 0;
+	private String rankDifficulty = "Easy";
+	private String rankInstrument;
 
 	public static Game game;
 	public static RankingPage rankingPage;
@@ -344,10 +360,7 @@ public class RhythmOrchestra extends JFrame {
 			}
 		});
 		add(loginButton);
-		
-		
-		
-		
+
 		logoutButton.setBounds(273, 62, 55, 55);
 		logoutButton.setVisible(false);
 		logoutButton.setBorderPainted(false);
@@ -373,14 +386,11 @@ public class RhythmOrchestra extends JFrame {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				logoutEvent();
+				tfid.setText(null); // 바뀐부분
+				tfpw.setText(null); // 바뀐부분
 			}
 		});
 		add(logoutButton);
-		
-		
-		
-		
-		
 
 		loginpassButton.setVisible(false);
 		loginpassButton.setBounds(430, 440, 80, 80);
@@ -435,6 +445,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null); // 바뀐부분
+				tfpw.setText(null); // 바뀐부분
 				enterJoin();
 			}
 		});
@@ -465,6 +477,9 @@ public class RhythmOrchestra extends JFrame {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				joinEvent();
+				newid.setText(null);
+				newpw.setText(null);
+				confirmpw.setText(null);
 			}
 		});
 		add(signuppassButton);
@@ -493,6 +508,8 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				tfid.setText(null); // 바뀐부분
+				tfpw.setText(null); // 바뀐부분
 				StartMenu();
 			}
 		});
@@ -522,12 +539,14 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
+				newid.setText(null); // 바뀐부분
+				newpw.setText(null); // 바뀐부분
+				confirmpw.setText(null); // 바뀐부분
 				enterLogin();
 			}
 		});
 		add(backsignupButton);
-		
-		
+
 		backStartButton.setVisible(false);
 		backStartButton.setBounds(20, 50, 60, 60);
 		backStartButton.setBorderPainted(false);
@@ -556,8 +575,7 @@ public class RhythmOrchestra extends JFrame {
 			}
 		});
 		add(backStartButton);
-		
-		
+
 		backRankingButton.setVisible(false);
 		backRankingButton.setBounds(20, 50, 60, 60);
 		backRankingButton.setBorderPainted(false);
@@ -704,7 +722,6 @@ public class RhythmOrchestra extends JFrame {
 		});
 		add(hardButton);
 
-		
 		rankingButton.setVisible(false);
 		rankingButton.setBounds(840, 460, 180, 70);
 		rankingButton.setBorderPainted(false);
@@ -733,8 +750,7 @@ public class RhythmOrchestra extends JFrame {
 			}
 		});
 		add(rankingButton);
-		
-		
+
 		rankEasyButton.setVisible(false);
 		rankEasyButton.setBounds(885, 120, 190, 65);
 		rankEasyButton.setBorderPainted(false);
@@ -759,7 +775,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
-				//gameStart(nowSelected, "Easy");
+				rankEasyEvent(nowSelected);
 			}
 		});
 		add(rankEasyButton);
@@ -788,15 +804,10 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
-				//gameStart(nowSelected, "Hard");
+				rankHardEvent(nowSelected);
 			}
 		});
 		add(rankHardButton);
-		
-		
-		
-		
-		
 
 		rankPianoButton.setVisible(false);
 		rankPianoButton.setBounds(885, 300, 190, 65);
@@ -822,7 +833,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
-				//selectPiano();
+				rankPianoEvent(nowSelected);
 			}
 		});
 		add(rankPianoButton);
@@ -851,7 +862,7 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
-				//selectViolin();
+				rankViolinEvent(nowSelected);
 			}
 		});
 		add(rankViolinButton);
@@ -880,13 +891,11 @@ public class RhythmOrchestra extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
-				//selectGuitar();
+				rankGuitarEvent(nowSelected);
 			}
 		});
 		add(rankGuitarButton);
-		
-		
-		
+
 		pianoButton.setVisible(false);
 		pianoButton.setBounds(295, 540, 250, 67);
 		pianoButton.setBorderPainted(false);
@@ -1030,11 +1039,11 @@ public class RhythmOrchestra extends JFrame {
 		g.drawImage(screenImage, 0, 0, null);
 	}
 
-	//화면 그리는 함수
+	// 화면 그리는 함수
 	public void screenDraw(Graphics2D g) {
 		g.drawImage(background, 0, 0, null);
 		if (isMainScreen) {
-			if(loginChk) {
+			if (loginChk) {
 				g.drawImage(userNameBackgroundImage, 20, 40, null);
 				g.setFont(new Font("Arial", Font.BOLD, 30));
 				g.setColor(Color.WHITE);
@@ -1058,7 +1067,7 @@ public class RhythmOrchestra extends JFrame {
 		this.repaint();
 	}
 
-	//곡선택 함수
+	// 곡선택 함수
 	public void selectTrack(int nowSelected) {
 		if (selectedMusic != null)
 			selectedMusic.close();
@@ -1070,7 +1079,7 @@ public class RhythmOrchestra extends JFrame {
 		selectedMusic.start();
 	}
 
-	//왼쪽으로 곡 넘기기
+	// 왼쪽으로 곡 넘기기
 	public void selectLeft() {
 		if (nowSelected == 0)
 			nowSelected = trackList.size() - 3;
@@ -1083,7 +1092,7 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 	}
 
-	//오른쪽으로 곡 넘기기
+	// 오른쪽으로 곡 넘기기
 	public void selectRight() {
 		if (nowSelected == trackList.size() - 3)
 			nowSelected = 0;
@@ -1096,7 +1105,7 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 	}
 
-	//피아노 버튼 선택 함수
+	// 피아노 버튼 선택 함수
 	public void selectPiano() {
 		background = new ImageIcon(Main.class.getResource("../images/pianoGameImage.jpg")).getImage();
 		if (nowSelected == 1 || nowSelected == 2)
@@ -1108,7 +1117,7 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 	}
 
-	//바이올린 선택 버튼 함수
+	// 바이올린 선택 버튼 함수
 	public void selectViolin() {
 		background = new ImageIcon(Main.class.getResource("../images/violinGameImage.jpg")).getImage();
 		if (nowSelected == 0 || nowSelected == 2)
@@ -1120,7 +1129,7 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 	}
 
-	//기타 선택 버튼 함수
+	// 기타 선택 버튼 함수
 	public void selectGuitar() {
 		background = new ImageIcon(Main.class.getResource("../images/guitarGameImage.jpg")).getImage();
 		if (nowSelected == 0 || nowSelected == 1)
@@ -1132,7 +1141,7 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 	}
 
-	//게임시작 함수
+	// 게임시작 함수
 	public void gameStart(int nowSelected, String difficulty) {
 		if (selectedMusic != null)
 			selectedMusic.close();
@@ -1151,19 +1160,20 @@ public class RhythmOrchestra extends JFrame {
 				.getImage();
 		backButton.setVisible(true);
 		isGameScreen = true;
-		if(loginChk) {
+		if (loginChk) {
 			game = new Game(trackList.get(nowSelected).getTitleName(), difficulty,
-					trackList.get(nowSelected).getGameMusic(), trackList.get(nowSelected).getInstrumentType(),userName);
-		}else {
+					trackList.get(nowSelected).getGameMusic(), trackList.get(nowSelected).getInstrumentType(),
+					userName);
+		} else {
 			game = new Game(trackList.get(nowSelected).getTitleName(), difficulty,
 					trackList.get(nowSelected).getGameMusic(), trackList.get(nowSelected).getInstrumentType());
 		}
-		
+
 		game.start();
 		setFocusable(true);
 	}
 
-	//게임하다가 취소하고 곡선택화면으로 돌아가는 함수
+	// 게임하다가 취소하고 곡선택화면으로 돌아가는 함수
 	public void backMain() {
 		isMainScreen = true;
 		leftButton.setVisible(true);
@@ -1174,9 +1184,9 @@ public class RhythmOrchestra extends JFrame {
 		pianoButton.setVisible(true);
 		violinButton.setVisible(true);
 		guitarButton.setVisible(true);
-		if(!loginChk) {
+		if (!loginChk) {
 			backStartButton.setVisible(true);
-		}else if(loginChk) {
+		} else if (loginChk) {
 			logoutButton.setVisible(true);
 		}
 		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
@@ -1187,7 +1197,7 @@ public class RhythmOrchestra extends JFrame {
 		game.close();
 	}
 
-	//비로그인으로 게임시작하는 함수
+	// 비로그인으로 게임시작하는 함수
 	public void enterMain() {
 		startButton.setVisible(false);
 		quitButton.setVisible(false);
@@ -1210,13 +1220,13 @@ public class RhythmOrchestra extends JFrame {
 		violinButton.setVisible(true);
 		guitarButton.setVisible(true);
 		introMusic.close();
-		if(backChk) {
+		if (backChk) {
 			backIntroMusic.close();
 		}
 		selectTrack(0);
 	}
 
-	//로그인창 띄우는 함수
+	// 로그인창 띄우는 함수
 	public void enterLogin() {
 
 		startButton.setVisible(false);
@@ -1236,7 +1246,7 @@ public class RhythmOrchestra extends JFrame {
 
 	}
 
-	//로그인함수
+	// 로그인함수
 	public void loginEvent() {
 		UserDAO userDAO = new UserDAO();
 		int result = userDAO.login(tfid.getText(), new String(tfpw.getPassword()));
@@ -1263,28 +1273,69 @@ public class RhythmOrchestra extends JFrame {
 			violinButton.setVisible(true);
 			guitarButton.setVisible(true);
 			introMusic.close();
-			if(backChk) {
+			if (backChk) {
 				backIntroMusic.close();
 			}
 			selectTrack(0);
 			logoutButton.setVisible(true);
 			userName = tfid.getText();
-			
+
 		} else if (result == 0) {
-			System.out.println("wrong pw");
+			showTemporaryMessage("비밀번호가<br>틀렸습니다.");
 		} else if (result == -1) {
-			System.out.println("wrong id");
+			showTemporaryMessage("아이디가<br>틀렸습니다.");
 		} else if (result == -2) {
-			System.out.println("database error");
+			showTemporaryMessage("데이터베이스 오류!");
 		}
 	}
-	
-	//로그아웃 함수
+
+	//로그인, 회원가입시 이상있으면 메세지 띄우는 함수
+	public void showTemporaryMessage(String message) {
+	    final JDialog dialog = new JDialog();
+	    dialog.setUndecorated(true);
+	    dialog.setLayout(new BorderLayout());
+
+	    JLabel label = new JLabel("<html><div style='text-align: center;'>" + message + "</div></html>", SwingConstants.CENTER);
+	    label.setFont(new Font("Arial", Font.BOLD, 30)); // 글꼴과 크기 설정
+	    label.setForeground(Color.WHITE); // 텍스트 색상 설정
+	    label.setBackground(Color.decode("#859991")); // 배경색 설정
+	    label.setOpaque(true); // 배경색이 보이게 설정
+	    label.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // 여백 추가
+
+	    JPanel panel = new JPanel(new GridBagLayout());
+	    panel.add(label);
+	    panel.setBackground(label.getBackground()); // panel의 배경색을 label의 배경색과 동일하게 설정
+
+	    dialog.getContentPane().add(panel, BorderLayout.CENTER);
+	    dialog.getRootPane().setBorder(BorderFactory.createLineBorder(Color.WHITE, 8)); // dialog에 테두리 추가
+	    dialog.pack();
+	    dialog.setLocationRelativeTo(null); // dialog를 화면 중앙에 위치시킵니다
+	    dialog.setVisible(true);
+	    dialog.setSize(300, 200);
+	    // 메시지를 3초 동안 보여주고 사라지게 합니다
+	    new Thread() {
+	        public void run() {
+	            try {
+	                Thread.sleep(2000); // 2초 동안 잠깁니다
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	            dialog.setVisible(false);
+	            dialog.dispose();
+	        }
+	    }.start();
+	}
+
+
+
+
+	// 로그아웃 함수
 	public void logoutEvent() {
 		loginChk = false;
 		backChk = true;
 		userName = null;
 		isMainScreen = false;
+		nowSelected = 0;
 		logoutButton.setVisible(false);
 		leftButton.setVisible(false);
 		rightButton.setVisible(false);
@@ -1303,7 +1354,7 @@ public class RhythmOrchestra extends JFrame {
 		backIntroMusic.start();
 	}
 
-	//회원가입 창 띄우는 함수
+	// 회원가입 창 띄우는 함수
 	public void enterJoin() {
 		tfid.setVisible(false);
 		tfpw.setVisible(false);
@@ -1318,23 +1369,28 @@ public class RhythmOrchestra extends JFrame {
 		backsignupButton.setVisible(true);
 	}
 
-	//회원가입 함수
+	// 회원가입 함수
 	public void joinEvent() {
 		User user = new User();
 		user.setUserID(newid.getText());
 		user.setUserPW(new String(newpw.getPassword()));
-		if (newid.getText() == null || new String(newpw.getPassword()) == null || new String(confirmpw.getPassword()) == null ) {
-			System.out.println("not enter");
+		if (newid.getText().isEmpty() || new String(newpw.getPassword()).isEmpty()
+				|| new String(confirmpw.getPassword()).isEmpty()) {
+			showTemporaryMessage("입력이 안 된<br>항목이 있습니다.");
+		} else if (!new String(newpw.getPassword()).equals(new String(confirmpw.getPassword()))) {
+			showTemporaryMessage("비밀번호<br>확인이<br>틀렸습니다.");
+		} else {
+			UserDAO userDAO = new UserDAO();
+			int result = userDAO.join(user);
+			if (result == -1) {
+				showTemporaryMessage("이미 있는<br>아이디입니다.");
 			} else {
-				UserDAO userDAO = new UserDAO();
-				int result = userDAO.join(user);
-				if (result == -1) {
-					System.out.println("already id");
-				} else {
-					enterLogin();
-				}
+				enterLogin();
 			}
+		}
 	}
+
+	//로그인창에서 시작페이지로 넘어가기
 	public void StartMenu() {
 		tfid.setVisible(false);
 		tfpw.setVisible(false);
@@ -1346,11 +1402,12 @@ public class RhythmOrchestra extends JFrame {
 		quitButton.setVisible(true);
 		loginButton.setVisible(true);
 	}
-	
-	//비로그인시 메인창에서 로그인창으로 넘어가는 버튼 함수
+
+	// 비로그인시 메인창에서 로그인창으로 넘어가는 버튼 함수
 	public void backStart() {
 		isMainScreen = false;
 		backChk = true;
+		nowSelected = 0;
 		leftButton.setVisible(false);
 		rightButton.setVisible(false);
 		easyButton.setVisible(false);
@@ -1368,10 +1425,11 @@ public class RhythmOrchestra extends JFrame {
 		backIntroMusic = new Music("introMusic.mp3", true);
 		backIntroMusic.start();
 	}
-	
-	
+
+	// 랭킹페이지 여는 함수
 	public void enterRanking(int nowSelected) {
 		isMainScreen = false;
+		rankInstrument = trackList.get(nowSelected).getInstrumentType();
 		leftButton.setVisible(false);
 		logoutButton.setVisible(false);
 		backStartButton.setVisible(false);
@@ -1391,11 +1449,14 @@ public class RhythmOrchestra extends JFrame {
 		rankViolinButton.setVisible(true);
 		rankGuitarButton.setVisible(true);
 		isRankScreen = true;
-		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), trackList.get(nowSelected).getInstrumentType(),background);
-		
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(),
+				trackList.get(nowSelected).getInstrumentType(), background, "Easy");
+
 		rankingPage.start();
 		setFocusable(true);
 	}
+
+	// 랭킹 페이지에서 메인 페이지로 넘어가는 함수
 	public void backRankToMain() {
 		isMainScreen = true;
 		rankEasyButton.setVisible(false);
@@ -1411,9 +1472,9 @@ public class RhythmOrchestra extends JFrame {
 		pianoButton.setVisible(true);
 		violinButton.setVisible(true);
 		guitarButton.setVisible(true);
-		if(!loginChk) {
+		if (!loginChk) {
 			backStartButton.setVisible(true);
-		}else if(loginChk) {
+		} else if (loginChk) {
 			logoutButton.setVisible(true);
 		}
 		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
@@ -1422,6 +1483,56 @@ public class RhythmOrchestra extends JFrame {
 		selectTrack(nowSelected);
 		isRankScreen = false;
 		rankingPage.close();
+	}
+
+	// 랭킹페이지 이지 랭킹으로 변환
+	public void rankEasyEvent(int nowSelected) {
+		rankDifficulty = "Easy";
+		rankingPage.close();
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), rankInstrument, background,
+				rankDifficulty);
+		rankingPage.start();
+		setFocusable(true);
+	}
+
+	// 랭킹페이지 하드 랭킹으로 변환
+	public void rankHardEvent(int nowSelected) {
+		rankDifficulty = "Hard";
+		rankingPage.close();
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), rankInstrument, background,
+				rankDifficulty);
+		rankingPage.start();
+		setFocusable(true);
+	}
+
+	// 랭킹페이지 하드 랭킹으로 변환
+	public void rankPianoEvent(int nowSelected) {
+		rankInstrument = "piano";
+		rankingPage.close();
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), rankInstrument, background,
+				rankDifficulty);
+		rankingPage.start();
+		setFocusable(true);
+	}
+
+	// 랭킹페이지 하드 랭킹으로 변환
+	public void rankViolinEvent(int nowSelected) {
+		rankInstrument = "violin";
+		rankingPage.close();
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), rankInstrument, background,
+				rankDifficulty);
+		rankingPage.start();
+		setFocusable(true);
+	}
+
+	// 랭킹페이지 하드 랭킹으로 변환
+	public void rankGuitarEvent(int nowSelected) {
+		rankInstrument = "guitar";
+		rankingPage.close();
+		rankingPage = new RankingPage(trackList.get(nowSelected).getTitleName(), rankInstrument, background,
+				rankDifficulty);
+		rankingPage.start();
+		setFocusable(true);
 	}
 
 }
