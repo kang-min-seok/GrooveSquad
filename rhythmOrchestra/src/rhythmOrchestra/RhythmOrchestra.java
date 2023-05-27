@@ -987,10 +987,10 @@ public class RhythmOrchestra extends JFrame{
 		pianoButton.setBorderPainted(false);
 		pianoButton.setContentAreaFilled(false);
 		pianoButton.setFocusPainted(false);
+		pianoButton.setIcon(pianoButtonEnteredImage);
 		pianoButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				pianoButton.setIcon(pianoButtonEnteredImage);
 				pianoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
@@ -998,12 +998,14 @@ public class RhythmOrchestra extends JFrame{
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				pianoButton.setIcon(pianoButtonBasicImage);
 				pianoButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
+				pianoButton.setIcon(pianoButtonEnteredImage);
+				violinButton.setIcon(violinButtonBasicImage);
+				guitarButton.setIcon(guitarButtonBasicImage);
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectPiano();
@@ -1020,7 +1022,6 @@ public class RhythmOrchestra extends JFrame{
 		violinButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				violinButton.setIcon(violinButtonEnteredImage);
 				violinButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
@@ -1028,12 +1029,14 @@ public class RhythmOrchestra extends JFrame{
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				violinButton.setIcon(violinButtonBasicImage);
 				violinButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
+				pianoButton.setIcon(pianoButtonBasicImage);
+				violinButton.setIcon(violinButtonEnteredImage);
+				guitarButton.setIcon(guitarButtonBasicImage);
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectViolin();
@@ -1050,7 +1053,6 @@ public class RhythmOrchestra extends JFrame{
 		guitarButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				guitarButton.setIcon(guitarButtonEnteredImage);
 				guitarButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 				Music buttonEnteredMusic = new Music("buttonEnteredMusic.mp3", false);
 				buttonEnteredMusic.start();
@@ -1058,12 +1060,14 @@ public class RhythmOrchestra extends JFrame{
 
 			@Override
 			public void mouseExited(MouseEvent e) {
-				guitarButton.setIcon(guitarButtonBasicImage);
 				guitarButton.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 			}
 
 			@Override
 			public void mousePressed(MouseEvent e) {
+				pianoButton.setIcon(pianoButtonBasicImage);
+				violinButton.setIcon(violinButtonBasicImage);
+				guitarButton.setIcon(guitarButtonEnteredImage);
 				Music buttonPressedMusic = new Music("buttonPressedMusic.mp3", false);
 				buttonPressedMusic.start();
 				selectGuitar();
@@ -1641,12 +1645,15 @@ public class RhythmOrchestra extends JFrame{
 		setFocusable(true);
 	}
 	public void updateHighScore() {
-	    RankingDAO rankingDAO = new RankingDAO();
-	    ArrayList<Ranking> list = rankingDAO.getHighScore(trackList.get(nowSelected).getTitleName(), trackList.get(nowSelected).getInstrumentType(), highScoreDifficulty, userName);
-	    if(list.isEmpty()) {
-	        highScore = 0;
-	    } else {
-	        highScore = list.get(0).getScore();
-	    }
+		if(loginChk) {
+			RankingDAO rankingDAO = new RankingDAO();
+		    ArrayList<Ranking> list = rankingDAO.getHighScore(trackList.get(nowSelected).getTitleName(), trackList.get(nowSelected).getInstrumentType(), highScoreDifficulty, userName);
+		    if(list.isEmpty()) {
+		        highScore = 0;
+		    } else {
+		        highScore = list.get(0).getScore();
+		    }
+		}
+	    
 	}
 }

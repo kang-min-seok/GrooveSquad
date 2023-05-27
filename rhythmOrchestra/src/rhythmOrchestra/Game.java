@@ -39,6 +39,7 @@ public class Game extends Thread {
 	private String difficulty;
 	private String musicTitle;
 	private Music gameMusic;
+	private Music resultSound = new Music("resultSound.mp3", false);
 	private String instrumentType;
 	private String userID;
 	private boolean endChk = false;
@@ -52,6 +53,7 @@ public class Game extends Thread {
 	private int greatChk;
 	private int goodChk;
 	private int missChk;
+	private int noteCount;
 	
 	private boolean rankChk=true;
 	private int highScore;
@@ -88,8 +90,9 @@ public class Game extends Thread {
 	}
 
 	public void screenDraw(Graphics2D g) {
-		endChecking();
+
 		if (!endChk) {
+			endChecking();
 			g.drawImage(noteRouteSImage, 228, 30, null);
 			g.drawImage(noteRouteDImage, 332, 30, null);
 			g.drawImage(noteRouteFImage, 436, 30, null);
@@ -129,7 +132,6 @@ public class Game extends Thread {
 				}
 
 			}
-
 			g.setColor(Color.white);
 			g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 			g.setFont(new Font("Arial", Font.BOLD, 30));
@@ -209,15 +211,15 @@ public class Game extends Thread {
 			g.setColor(Color.BLACK);
 			g.setFont(new Font("Elephant", Font.BOLD, 70));
 			g.drawString(Integer.toString(maxCombo), 600, 400);
-			if (missChk <=5) {
+			if (missChk <= noteCount*0.1) {
 				g.drawString("S", 630,590);
-			}else if (missChk >5 && missChk <=10) {
+			}else if (missChk >noteCount*0.1 && missChk <=noteCount*0.2) {
 				g.drawString("A", 630,590);
-			}else if (missChk >10 && missChk <=15) {
+			}else if (missChk >noteCount*0.2 && missChk <=noteCount*0.3) {
 				g.drawString("B", 630,590);
-			}else if (missChk >15 && missChk <=20) {
+			}else if (missChk >noteCount*0.3 && missChk <=noteCount*0.4) {
 				g.drawString("C", 630,590);
-			}else if (missChk >20 && missChk <=25) {
+			}else if (missChk >noteCount*0.4 && missChk <=noteCount*0.5) {
 				g.drawString("D", 630,590);
 			}else{
 				g.drawString("F", 630,590);
@@ -655,6 +657,7 @@ public class Game extends Thread {
 
 		int i = 0;
 		gameMusic.start();
+		noteCount=beats.length;
 		while (i < beats.length && !isInterrupted()) {
 			boolean dropped = false;
 			if (beats[i].getTime() <= gameMusic.getTime()) {
@@ -821,19 +824,20 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					ArrayList<Ranking> list = rankingDAO.getHighScore(titleName, instrumentType, difficulty, userID);
 					
 					highScore = list.get(0).getScore();
-					if(highScore >= score) {
+					if(score >= highScore) {
 						highScoreChk = true;
 					}
-					
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
-				}else if(userID == null){
+				}else if(userID == null){resultSound.start();resultSound.start();
 					endChk = true;
+					resultSound.start();
 				}
 			}
 		}
@@ -852,11 +856,12 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
-				}else if(userID == null){
+				}else if(userID == null){resultSound.start();
 					endChk = true;
 				}
 			}
@@ -869,11 +874,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -886,11 +893,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -903,11 +912,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -920,11 +931,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -937,11 +950,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -954,11 +969,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -971,11 +988,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -988,11 +1007,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1005,11 +1026,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1022,11 +1045,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1040,11 +1065,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1058,11 +1085,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1076,11 +1105,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1094,11 +1125,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1112,11 +1145,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
@@ -1130,11 +1165,13 @@ public class Game extends Thread {
 					int result = rankingDAO.rankingWrite(titleName, instrumentType, score, difficulty, userID);
 					System.out.println("ranking success");
 					rankChk = false;
+					resultSound.start();
 					endChk = true;
 					if (result == -1) {
 						System.out.println("ranking failed");
 					}
 				}else if(userID == null){
+					resultSound.start();
 					endChk = true;
 				}
 			}
