@@ -25,7 +25,6 @@ public class KeyListener extends KeyAdapter {
 		} else if (e.getKeyCode() == KeyEvent.VK_L) {
 			RhythmOrchestra.game.pressL();	
 		}
-		
 	}
 	
 	@Override

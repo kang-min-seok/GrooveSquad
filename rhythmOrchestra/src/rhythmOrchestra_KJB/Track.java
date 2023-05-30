@@ -1,7 +1,6 @@
 package rhythmOrchestra_KJB;
 
 public class Track {
-	
 
 	private String titleImage; // 제목 부분 이미지
 	private String startImage; // 게임 선택 창 표지 이미지
