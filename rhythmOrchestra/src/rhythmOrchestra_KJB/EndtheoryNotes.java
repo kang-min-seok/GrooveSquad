@@ -14,7 +14,6 @@ public class EndtheoryNotes {
 	public Beat[] EndtheoryEasy(String titleName, String instrumentType, String difficulty) {
 		Beat[] beats = null;
 			
-
 		// 사건의 지평선 피아노 이지모드 노트
 				    if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano") && difficulty.equals("Easy")) {
 					int startTime = 1000 - Main.REACH_TIME;

@@ -316,21 +316,29 @@ public class Game extends Thread {
 	
 	// 노트 찍어내는 함수
 	public void dropNotes(String TitleName) {
-		// Ditto 노트
-		if (titleName.equals("Ditto-NewJeans")) {
-			beats = new DittoNotes(titleName, instrumentType, difficulty).Ditto(titleName, instrumentType, difficulty);
+		// Ditto 노트 이지노트
+		if (titleName.equals("Ditto-NewJeans")&&difficulty.equals("Easy")) {
+			beats = new DittoNotes(titleName, instrumentType, difficulty).DittoEasy(titleName, instrumentType, difficulty);
+		}
+		// Ditto 노트 하드 노트
+		else if (titleName.equals("Ditto-NewJeans")&&difficulty.equals("Hard")) {
+			beats = new DittoNotes(titleName, instrumentType, difficulty).DittoHard(titleName, instrumentType, difficulty);
 		}
 		// 사건의 지평선 이지 노트
-		else if (titleName.equals("EndTheory-YOUNHA")) {
+		else if (titleName.equals("EndTheory-YOUNHA")&&difficulty.equals("Easy")) {
 			beats = new EndtheoryNotes(titleName, instrumentType, difficulty).EndtheoryEasy(titleName, instrumentType, difficulty);
 		}
 		// 사건의 지평선 하드 노트
-		else if (titleName.equals("EndTheory-YOUNHA")) {
+		else if (titleName.equals("EndTheory-YOUNHA")&&difficulty.equals("Hard")) {
 			beats = new EndtheoryNotes(titleName, instrumentType, difficulty).EndtheoryHard(titleName, instrumentType, difficulty);
 		}
-		// 봄여름가을겨울 노트
-		else if (titleName.equals("Still Life-BIGBANG")) {
-			beats = new StillLifeNotes(titleName, instrumentType, difficulty).StillLife(titleName, instrumentType, difficulty);
+		// 봄여름가을겨울 이지 노트
+		else if (titleName.equals("Still Life-BIGBANG")&&difficulty.equals("Easy")) {
+			beats = new StillLifeNotes(titleName, instrumentType, difficulty).StillLifeEasy(titleName, instrumentType, difficulty);
+		}
+		// 봄여름가을겨울 하드 노트
+		else if (titleName.equals("Still Life-BIGBANG")&&difficulty.equals("Hard")) {
+			beats = new StillLifeNotes(titleName, instrumentType, difficulty).StillLifeHard(titleName, instrumentType, difficulty);
 		}
 
 		int i = 0;
