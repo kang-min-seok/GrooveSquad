@@ -6,8 +6,6 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import javax.swing.ImageIcon;
 
@@ -318,15 +316,15 @@ public class Game extends Thread {
 	
 	// 노트 찍어내는 함수
 	public void dropNotes(String TitleName) {
-		// Ditto 피아노 이지모드 노트
+		// Ditto 노트
 		if (titleName.equals("Ditto-NewJeans")) {
 			beats = new DittoNotes(titleName, instrumentType, difficulty).Ditto(titleName, instrumentType, difficulty);
 		}
-		// 사건의 지평선 피아노 이지모드 노트
+		// 사건의 지평선 노트
 		else if (titleName.equals("EndTheory-YOUNHA")) {
 			beats = new EndtheoryNotes(titleName, instrumentType, difficulty).Endtheory(titleName, instrumentType, difficulty);
 		}
-		// 봄여름가을겨울 피아노 이지모드 노트
+		// 봄여름가을겨울 노트
 		else if (titleName.equals("Still Life-BIGBANG")) {
 			beats = new StillLifeNotes(titleName, instrumentType, difficulty).StillLife(titleName, instrumentType, difficulty);
 		}
