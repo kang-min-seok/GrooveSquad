@@ -123,4 +123,7 @@ public class RankingDAO {
 		
 		return list;
 	}
+	
+	
+	
 }

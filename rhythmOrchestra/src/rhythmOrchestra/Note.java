@@ -61,7 +61,7 @@ public class Note extends Thread{
 	}
 	public void drop() {
 		y += Main.NOTE_SPEED;
-		if(y>620) {
+		if(y>630) {
 			close();
 		}
 	}
@@ -83,11 +83,11 @@ public class Note extends Thread{
 		}
 	}
 	public String judge() {
-		if(y>=623) {
+		if(y>=620) {
 			close();
 			return "Late";
 		}
-		else if(y>= 600) {
+		else if(y>= 610) {
 			close();
 			return "Good";
 		}
@@ -103,11 +103,11 @@ public class Note extends Thread{
 			close();
 			return "Great";
 		}
-		else if(y>= 550) {
+		else if(y>= 540) {
 			close();
 			return "Good";
 		}
-		else if(y>= 535) {
+		else if(y>= 530) {
 			close();
 			return "Early";
 		}

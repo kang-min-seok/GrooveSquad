@@ -1351,45 +1351,48 @@ public class RhythmOrchestra extends JFrame{
 	// 로그인함수
 	public void loginEvent() {
 		UserDAO userDAO = new UserDAO();
-		int result = userDAO.login(tfid.getText(), new String(tfpw.getPassword()));
+		if(tfid.getText().isEmpty() || new String(tfpw.getPassword()).isEmpty()) {
+			showTemporaryMessage("입력이 안 된<br>항목이 있습니다.");
+		}else {
+			int result = userDAO.login(tfid.getText(), new String(tfpw.getPassword()));
+			if (result == 1) {
+				loginChk = true;
+				startButton.setVisible(false);
+				quitButton.setVisible(false);
+				loginButton.setVisible(false);
+				tfid.setVisible(false);
+				tfpw.setVisible(false);
+				loginpassButton.setVisible(false);
+				signupButton.setVisible(false);
+				backloginButton.setVisible(false);
+				background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+						.getImage();
+				isMainScreen = true;
+				leftButton.setVisible(true);
+				rightButton.setVisible(true);
+				easyButton.setVisible(true);
+				hardButton.setVisible(true);
+				highScoreEasyButton.setVisible(true);
+				highScoreHardButton.setVisible(true);
+				rankingButton.setVisible(true);
+				pianoButton.setVisible(true);
+				violinButton.setVisible(true);
+				guitarButton.setVisible(true);
+				introMusic.close();
+				if (backChk) {
+					backIntroMusic.close();
+				}
+				selectTrack(0);
+				logoutButton.setVisible(true);
+				userName = tfid.getText();
 
-		if (result == 1) {
-			loginChk = true;
-			startButton.setVisible(false);
-			quitButton.setVisible(false);
-			loginButton.setVisible(false);
-			tfid.setVisible(false);
-			tfpw.setVisible(false);
-			loginpassButton.setVisible(false);
-			signupButton.setVisible(false);
-			backloginButton.setVisible(false);
-			background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
-					.getImage();
-			isMainScreen = true;
-			leftButton.setVisible(true);
-			rightButton.setVisible(true);
-			easyButton.setVisible(true);
-			hardButton.setVisible(true);
-			highScoreEasyButton.setVisible(true);
-			highScoreHardButton.setVisible(true);
-			rankingButton.setVisible(true);
-			pianoButton.setVisible(true);
-			violinButton.setVisible(true);
-			guitarButton.setVisible(true);
-			introMusic.close();
-			if (backChk) {
-				backIntroMusic.close();
+			} else if (result == 0) {
+				showTemporaryMessage("비밀번호가<br>틀렸습니다.");
+			} else if (result == -1) {
+				showTemporaryMessage("아이디가<br>틀렸습니다.");
+			} else if (result == -2) {
+				showTemporaryMessage("데이터베이스 오류!");
 			}
-			selectTrack(0);
-			logoutButton.setVisible(true);
-			userName = tfid.getText();
-
-		} else if (result == 0) {
-			showTemporaryMessage("비밀번호가<br>틀렸습니다.");
-		} else if (result == -1) {
-			showTemporaryMessage("아이디가<br>틀렸습니다.");
-		} else if (result == -2) {
-			showTemporaryMessage("데이터베이스 오류!");
 		}
 	}
 
