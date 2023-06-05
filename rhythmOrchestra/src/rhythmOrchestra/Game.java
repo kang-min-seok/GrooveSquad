@@ -556,9 +556,7 @@ public class Game extends Thread {
 					}
 				} else if (userID == null) {
 					resultSound.start();
-					resultSound.start();
 					endChk = true;
-					resultSound.start();
 				}
 			}
 		}
@@ -592,8 +590,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -629,8 +625,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -665,8 +659,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -701,8 +693,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -737,8 +727,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -773,8 +761,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -810,8 +796,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
@@ -847,8 +831,6 @@ public class Game extends Thread {
 						System.out.println("ranking failed");
 					}
 				} else if (userID == null) {
-					resultSound.start();
-					resultSound.start();
 					endChk = true;
 					resultSound.start();
 				}
