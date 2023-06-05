@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 public class RankingPage extends Thread {
 	private Image background;
-	private Image rankingPageWindowImage = new ImageIcon(Main.class.getResource("../images/rankingPageWindow.png")).getImage();
+	private Image rankingPageWindowImage = new ImageIcon(Main.class.getResource("/images/rankingPageWindow.png")).getImage();
 	
 	
 
@@ -48,11 +48,11 @@ public class RankingPage extends Thread {
 		g.setFont(new Font("Elephant", Font.BOLD, 50));
 		g.drawString(songInfo+" ("+difficulty+")", 125, 150);
 		if(instrumentInfo == "piano") {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_piano_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/rank_piano_charecter.png")).getImage();
 		}else if(instrumentInfo == "violin") {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_violin_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/rank_violin_charecter.png")).getImage();
 		}else if(instrumentInfo == "guitar") {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/rank_guitar_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/rank_guitar_charecter.png")).getImage();
 		}
 		g.drawImage(charecterImage,910,530,null);
 		

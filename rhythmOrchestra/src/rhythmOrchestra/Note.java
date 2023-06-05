@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
 
 public class Note extends Thread{
 
-	private Image noteBasicImage = new ImageIcon(Main.class.getResource("../images/noteBasic.jpg")).getImage();
+	private Image noteBasicImage = new ImageIcon(Main.class.getResource("/images/noteBasic.jpg")).getImage();
 	private int x,y = 580-1000/Main.SLEEP_TIME * Main.NOTE_SPEED;
 	private String noteType;
 	private boolean proceeded = true;

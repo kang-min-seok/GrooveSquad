@@ -17,25 +17,25 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class Game extends Thread {
-	private Image noteRouteLineImage = new ImageIcon(Main.class.getResource("../images/noteRouteLine.png")).getImage();
-	private Image judgementLineImage = new ImageIcon(Main.class.getResource("../images/judgementLine.png")).getImage();
+	private Image noteRouteLineImage = new ImageIcon(Main.class.getResource("/images/noteRouteLine.png")).getImage();
+	private Image judgementLineImage = new ImageIcon(Main.class.getResource("/images/judgementLine.png")).getImage();
 
-	private Image gameInfoImage = new ImageIcon(Main.class.getResource("../images/gameInfo.png")).getImage();
-	private Image noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteFImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteSpace1Image = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteSpace2Image = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteJImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteKImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image noteRouteLImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-	private Image highScoreChkImage = new ImageIcon(Main.class.getResource("../images/highScoreChk.png")).getImage();
+	private Image gameInfoImage = new ImageIcon(Main.class.getResource("/images/gameInfo.png")).getImage();
+	private Image noteRouteSImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteDImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteFImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteSpace1Image = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteSpace2Image = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteJImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteKImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image noteRouteLImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+	private Image highScoreChkImage = new ImageIcon(Main.class.getResource("/images/highScoreChk.png")).getImage();
 	private Image blueFlareImage;
 	private Image judgeImage;
 	private Image background;
 
 	private Image charecterImage;
-	private Image charecterBackgroundImage = new ImageIcon(Main.class.getResource("../images/charecterBackground.png"))
+	private Image charecterBackgroundImage = new ImageIcon(Main.class.getResource("/images/charecterBackground.png"))
 			.getImage();
 	private Image comboImage1;
 	private Image comboImage2;
@@ -124,7 +124,7 @@ public class Game extends Thread {
 			for (int i = 0; i < noteList.size(); i++) {
 				Note note = noteList.get(i);
 				if (note.getY() > 630) {
-					judgeImage = new ImageIcon(Main.class.getResource("../images/judgeMiss.png")).getImage();
+					judgeImage = new ImageIcon(Main.class.getResource("/images/judgeMiss.png")).getImage();
 					missChk += 1;
 					combo = 0;
 					maxComboChk();
@@ -162,54 +162,54 @@ public class Game extends Thread {
 			g.drawImage(judgeImage, 550, 420, null);
 		} else if (endChk) {
 			if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("piano")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_piano.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Ditto_piano.png"))
 						.getImage();
 			}
 
 			// Ditto 바이올린 이지모드 노트
 			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("violin")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_violin.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Ditto_violin.png"))
 						.getImage();
 			}
 			// Ditto 기타 이지모드 노트
 			else if (titleName.equals("Ditto-NewJeans") && instrumentType.equals("guitar")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Ditto_guitar.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Ditto_guitar.png"))
 						.getImage();
 			}
 
 			// 사건의 지평선 피아노 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("piano")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_piano.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Endtheory_piano.png"))
 						.getImage();
 			}
 
 			// 사건의 지평선 바이올린 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("violin")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_violin.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Endtheory_violin.png"))
 						.getImage();
 			}
 
 			// 사건의 지평선 기타 이지모드 노트
 			else if (titleName.equals("EndTheory-YOUNHA") && instrumentType.equals("guitar")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_Endtheory_guitar.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_Endtheory_guitar.png"))
 						.getImage();
 			}
 
 			// 봄여름가을겨울 피아노 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("piano")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_piano.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_StillLife_piano.png"))
 						.getImage();
 			}
 
 			// 봄여름가을겨울 바이올린 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("violin")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_violin.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_StillLife_violin.png"))
 						.getImage();
 			}
 
 			// 봄여름가을겨울 기타 이지모드 노트
 			else if (titleName.equals("Still Life-BIGBANG") && instrumentType.equals("guitar")) {
-				background = new ImageIcon(Main.class.getResource("../images/resultBackground_StillLife_guitar.png"))
+				background = new ImageIcon(Main.class.getResource("/images/resultBackground_StillLife_guitar.png"))
 						.getImage();
 			}
 			g.drawImage(background, 0, 0, null);
@@ -226,17 +226,17 @@ public class Game extends Thread {
 			g.setFont(new Font("Elephant", Font.BOLD, 70));
 			g.drawString(Integer.toString(maxCombo), 600, 400);
 			if (missChk <= noteCount * 0.1) {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_S.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_S.png")).getImage();
 			} else if (missChk > noteCount * 0.1 && missChk <= noteCount * 0.2) {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_A.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_A.png")).getImage();
 			} else if (missChk > noteCount * 0.2 && missChk <= noteCount * 0.3) {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_B.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_B.png")).getImage();
 			} else if (missChk > noteCount * 0.3 && missChk <= noteCount * 0.4) {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_C.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_C.png")).getImage();
 			} else if (missChk > noteCount * 0.4 && missChk <= noteCount * 0.5) {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_D.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_D.png")).getImage();
 			} else {
-				rankImage = new ImageIcon(Main.class.getResource("../images/rankImage_F.png")).getImage();
+				rankImage = new ImageIcon(Main.class.getResource("/images/rankImage_F.png")).getImage();
 			}
 			g.drawImage(rankImage, 630, 500, null);
 			if (highScoreChk == true) {
@@ -247,75 +247,75 @@ public class Game extends Thread {
 
 	public void pressS() {
 		judge("S");
-		noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteSImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"S\"),");
 	}
 
 	public void releaseS() {
-		noteRouteSImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteSImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	public void pressD() {
 		judge("D");
-		noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteDImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"D\"),");
 	}
 
 	public void releaseD() {
-		noteRouteDImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteDImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	public void pressF() {
 		judge("F");
-		noteRouteFImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteFImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"F\"),");
 	}
 
 	public void releaseF() {
-		noteRouteFImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteFImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	public void pressSpace() {
 		judge("Space");
-		noteRouteSpace1Image = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
-		noteRouteSpace2Image = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteSpace1Image = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
+		noteRouteSpace2Image = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"Space\"),");
 	}
 
 	public void releaseSpace() {
-		noteRouteSpace1Image = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
-		noteRouteSpace2Image = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteSpace1Image = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
+		noteRouteSpace2Image = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 
 	}
 
 	public void pressJ() {
 		judge("J");
-		noteRouteJImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteJImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"J\"),");
 	}
 
 	public void releaseJ() {
-		noteRouteJImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteJImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	public void pressK() {
 		judge("K");
-		noteRouteKImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteKImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"K\"),");
 	}
 
 	public void releaseK() {
-		noteRouteKImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteKImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	public void pressL() {
 		judge("L");
-		noteRouteLImage = new ImageIcon(Main.class.getResource("../images/noteRoutePressed.png")).getImage();
+		noteRouteLImage = new ImageIcon(Main.class.getResource("/images/noteRoutePressed.png")).getImage();
 		System.out.println("new Beat(" + getProgressTime() + ",\"L\"),");
 	}
 
 	public void releaseL() {
-		noteRouteLImage = new ImageIcon(Main.class.getResource("../images/noteRoute.png")).getImage();
+		noteRouteLImage = new ImageIcon(Main.class.getResource("/images/noteRoute.png")).getImage();
 	}
 
 	@Override
@@ -397,42 +397,42 @@ public class Game extends Thread {
 	// 악기 정보에 따라 캐릭터 삽입하는 함수
 	public void charecterType(String instrumentType) {
 		if (instrumentType.equals("piano")) {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/piano_charecter.png")).getImage();
 			if (comboChk == true) {
 				if (combo >= 0 && combo < 5) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter_sad.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/piano_charecter_sad.png"))
 							.getImage();
 				} else if (combo > 5 && combo < 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter.png")).getImage();
+					charecterImage = new ImageIcon(Main.class.getResource("/images/piano_charecter.png")).getImage();
 				} else if (combo > 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/piano_charecter_smile.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/piano_charecter_smile.png"))
 							.getImage();
 				}
 			}
 		} else if (instrumentType.equals("violin")) {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/violin_charecter.png")).getImage();
 			if (comboChk == true) {
 				if (combo >= 0 && combo < 5) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter_sad.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/violin_charecter_sad.png"))
 							.getImage();
 				} else if (combo > 5 && combo < 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter.png")).getImage();
+					charecterImage = new ImageIcon(Main.class.getResource("/images/violin_charecter.png")).getImage();
 				} else if (combo > 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/violin_charecter_smile.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/violin_charecter_smile.png"))
 							.getImage();
 				}
 			}
 
 		} else if (instrumentType.equals("guitar")) {
-			charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter.png")).getImage();
+			charecterImage = new ImageIcon(Main.class.getResource("/images/guitar_charecter.png")).getImage();
 			if (comboChk == true) {
 				if (combo >= 0 && combo < 5) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter_sad.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/guitar_charecter_sad.png"))
 							.getImage();
 				} else if (combo > 5 && combo < 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter.png")).getImage();
+					charecterImage = new ImageIcon(Main.class.getResource("/images/guitar_charecter.png")).getImage();
 				} else if (combo > 10) {
-					charecterImage = new ImageIcon(Main.class.getResource("../images/guitar_charecter_smile.png"))
+					charecterImage = new ImageIcon(Main.class.getResource("/images/guitar_charecter_smile.png"))
 							.getImage();
 				}
 			}
@@ -442,15 +442,15 @@ public class Game extends Thread {
 	// 판정 타이밍에 따른 콤보 증가, 점수 증가, 판정 이미지 출력
 	public void judgeEvent(String judge) {
 		if (!judge.equals("None")) {
-			blueFlareImage = new ImageIcon(Main.class.getResource("../images/blueFlare.png")).getImage();
+			blueFlareImage = new ImageIcon(Main.class.getResource("/images/blueFlare.png")).getImage();
 		}
 		if (judge.equals("Late")) {
-			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeLate.png")).getImage();
+			judgeImage = new ImageIcon(Main.class.getResource("/images/judgeLate.png")).getImage();
 			combo += 1;
 			comboChk = true;
 			maxComboChk();
 		} else if (judge.equals("Good")) {
-			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGood.png")).getImage();
+			judgeImage = new ImageIcon(Main.class.getResource("/images/judgeGood.png")).getImage();
 			score += 100;
 			goodChk += 1;
 			combo += 1;
@@ -458,7 +458,7 @@ public class Game extends Thread {
 			comboEvent();
 			maxComboChk();
 		} else if (judge.equals("Great")) {
-			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeGreat.png")).getImage();
+			judgeImage = new ImageIcon(Main.class.getResource("/images/judgeGreat.png")).getImage();
 			score += 300;
 			greatChk += 1;
 			combo += 1;
@@ -466,7 +466,7 @@ public class Game extends Thread {
 			comboEvent();
 			maxComboChk();
 		} else if (judge.equals("Perfect")) {
-			judgeImage = new ImageIcon(Main.class.getResource("../images/judgePerfect.png")).getImage();
+			judgeImage = new ImageIcon(Main.class.getResource("/images/judgePerfect.png")).getImage();
 			score += 500;
 			perfectChk += 1;
 			combo += 1;
@@ -474,7 +474,7 @@ public class Game extends Thread {
 			comboEvent();
 			maxComboChk();
 		} else if (judge.equals("Early")) {
-			judgeImage = new ImageIcon(Main.class.getResource("../images/judgeEarly.png")).getImage();
+			judgeImage = new ImageIcon(Main.class.getResource("/images/judgeEarly.png")).getImage();
 			combo += 1;
 			comboChk = true;
 			maxComboChk();
@@ -506,24 +506,24 @@ public class Game extends Thread {
 			return;
 		int ones, tens, hundreds;
 
-		comboImage1 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
-		comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
-		comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img0.png")).getImage();
+		comboImage1 = new ImageIcon(Main.class.getResource("/images/combo_img0.png")).getImage();
+		comboImage2 = new ImageIcon(Main.class.getResource("/images/combo_img0.png")).getImage();
+		comboImage3 = new ImageIcon(Main.class.getResource("/images/combo_img0.png")).getImage();
 
 		if (combo < 10) {
-			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img" + combo + ".png")).getImage();
+			comboImage3 = new ImageIcon(Main.class.getResource("/images/combo_img" + combo + ".png")).getImage();
 		} else if (combo >= 10 && combo < 100) {
 			tens = combo / 10;
 			ones = combo % 10;
-			comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img" + tens + ".png")).getImage();
-			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img" + ones + ".png")).getImage();
+			comboImage2 = new ImageIcon(Main.class.getResource("/images/combo_img" + tens + ".png")).getImage();
+			comboImage3 = new ImageIcon(Main.class.getResource("/images/combo_img" + ones + ".png")).getImage();
 		} else if (combo >= 100 && combo < 1000) {
 			hundreds = combo / 100;
 			tens = (combo / 10) % 10;
 			ones = (combo % 100) % 10;
-			comboImage1 = new ImageIcon(Main.class.getResource("../images/combo_img" + hundreds + ".png")).getImage();
-			comboImage2 = new ImageIcon(Main.class.getResource("../images/combo_img" + tens + ".png")).getImage();
-			comboImage3 = new ImageIcon(Main.class.getResource("../images/combo_img" + ones + ".png")).getImage();
+			comboImage1 = new ImageIcon(Main.class.getResource("/images/combo_img" + hundreds + ".png")).getImage();
+			comboImage2 = new ImageIcon(Main.class.getResource("/images/combo_img" + tens + ".png")).getImage();
+			comboImage3 = new ImageIcon(Main.class.getResource("/images/combo_img" + ones + ".png")).getImage();
 		}
 	}
 

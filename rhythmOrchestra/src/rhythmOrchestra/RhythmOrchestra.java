@@ -30,98 +30,98 @@ public class RhythmOrchestra extends JFrame{
 	private Image screenImage;
 	private Graphics screenGraphic;
 
-	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/exitButtonEntered.png"));
-	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/exitButtonBasic.png"));
+	private ImageIcon exitButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/exitButtonEntered.png"));
+	private ImageIcon exitButtonBasicImage = new ImageIcon(Main.class.getResource("/images/exitButtonBasic.png"));
 	private ImageIcon startButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/startButtonEntered.png"));
-	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("../images/startButtonBasic.png"));
-	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/quitButtonEntered.png"));
-	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("../images/quitButtonBasic.png"));
+			Main.class.getResource("/images/StartButtonEntered.png"));
+	private ImageIcon startButtonBasicImage = new ImageIcon(Main.class.getResource("/images/StartButtonBasic.png"));
+	private ImageIcon quitButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/quitButtonEntered.png"));
+	private ImageIcon quitButtonBasicImage = new ImageIcon(Main.class.getResource("/images/quitButtonBasic.png"));
 
 	private ImageIcon loginButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/loginButtonEntered.png"));
+			Main.class.getResource("/images/loginButtonEntered.png"));
 
-	private ImageIcon logoutButtonBasicImage = new ImageIcon(Main.class.getResource("../images/logoutButtonBasic.png"));
+	private ImageIcon logoutButtonBasicImage = new ImageIcon(Main.class.getResource("/images/logoutButtonBasic.png"));
 	private ImageIcon logoutButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/logoutButtonEntered.png"));
+			Main.class.getResource("/images/logoutButtonEntered.png"));
 
-	private ImageIcon loginButtonBasicImage = new ImageIcon(Main.class.getResource("../images/loginButtonBasic.png"));
+	private ImageIcon loginButtonBasicImage = new ImageIcon(Main.class.getResource("/images/loginButtonBasic.png"));
 	private ImageIcon loginpassButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/loginpassButtonEntered.png"));
+			Main.class.getResource("/images/loginpassButtonEntered.png"));
 	private ImageIcon loginpassButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/loginpassButtonBasic.png"));
+			Main.class.getResource("/images/loginpassButtonBasic.png"));
 
-	private Image userNameBackgroundImage = new ImageIcon(Main.class.getResource("../images/userNameBackground.png"))
+	private Image userNameBackgroundImage = new ImageIcon(Main.class.getResource("/images/userNameBackground.png"))
 			.getImage();
 	private ImageIcon signupButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/signupButtonEntered.png"));
-	private ImageIcon signupButtonBasicImage = new ImageIcon(Main.class.getResource("../images/signupButtonBasic.png"));
+			Main.class.getResource("/images/signupButtonEntered.png"));
+	private ImageIcon signupButtonBasicImage = new ImageIcon(Main.class.getResource("/images/signupButtonBasic.png"));
 	private ImageIcon signuppassButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/signuppassButtonEntered.png"));
+			Main.class.getResource("/images/signuppassButtonEntered.png"));
 	private ImageIcon signuppassButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/signuppassButtonBasic.png"));
+			Main.class.getResource("/images/signuppassButtonBasic.png"));
 
-	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/leftButtonEntered.png"));
-	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("../images/leftButtonBasic.png"));
+	private ImageIcon leftButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/leftButtonEntered.png"));
+	private ImageIcon leftButtonBasicImage = new ImageIcon(Main.class.getResource("/images/leftButtonBasic.png"));
 	private ImageIcon rightButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rightButtonEntered.png"));
-	private ImageIcon rightButtonBasicImage = new ImageIcon(Main.class.getResource("../images/rightButtonBasic.png"));
+			Main.class.getResource("/images/rightButtonEntered.png"));
+	private ImageIcon rightButtonBasicImage = new ImageIcon(Main.class.getResource("/images/rightButtonBasic.png"));
 
-	private ImageIcon easyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/easyButtonEntered.png"));
-	private ImageIcon easyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/easyButtonBasic.png"));
-	private ImageIcon hardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/hardButtonEntered.png"));
-	private ImageIcon hardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/hardButtonBasic.png"));
+	private ImageIcon easyButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/easyButtonEntered.png"));
+	private ImageIcon easyButtonBasicImage = new ImageIcon(Main.class.getResource("/images/easyButtonBasic.png"));
+	private ImageIcon hardButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/hardButtonEntered.png"));
+	private ImageIcon hardButtonBasicImage = new ImageIcon(Main.class.getResource("/images/hardButtonBasic.png"));
 	
-	private ImageIcon highScoreEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/highScoreEasyButtonEntered.png"));
-	private ImageIcon highScoreEasyButtonBasicImage = new ImageIcon(Main.class.getResource("../images/highScoreEasyButtonBasic.png"));
-	private ImageIcon highScoreHardButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/highScoreHardButtonEntered.png"));
-	private ImageIcon highScoreHardButtonBasicImage = new ImageIcon(Main.class.getResource("../images/highScoreHardButtonBasic.png"));
+	private ImageIcon highScoreEasyButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/highScoreEasyButtonEntered.png"));
+	private ImageIcon highScoreEasyButtonBasicImage = new ImageIcon(Main.class.getResource("/images/highScoreEasyButtonBasic.png"));
+	private ImageIcon highScoreHardButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/highScoreHardButtonEntered.png"));
+	private ImageIcon highScoreHardButtonBasicImage = new ImageIcon(Main.class.getResource("/images/highScoreHardButtonBasic.png"));
 	
 	
 
-	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("../images/backButtonEntered.png"));
-	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("../images/backButtonBasic.png"));
+	private ImageIcon backButtonEnteredImage = new ImageIcon(Main.class.getResource("/images/backButtonEntered.png"));
+	private ImageIcon backButtonBasicImage = new ImageIcon(Main.class.getResource("/images/backButtonBasic.png"));
 
 	private ImageIcon rankEasyButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankEasyButtonEntered.png"));
+			Main.class.getResource("/images/rankEasyButtonEntered.png"));
 	private ImageIcon rankEasyButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankEasyButtonBasic.png"));
+			Main.class.getResource("/images/rankEasyButtonBasic.png"));
 	private ImageIcon rankHardButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankHardButtonEntered.png"));
+			Main.class.getResource("/images/rankHardButtonEntered.png"));
 	private ImageIcon rankHardButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankHardButtonBasic.png"));
+			Main.class.getResource("/images/rankHardButtonBasic.png"));
 
 	private ImageIcon rankPianoButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankPianoButtonEntered.png"));
+			Main.class.getResource("/images/rankPianoButtonEntered.png"));
 	private ImageIcon rankPianoButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankPianoButtonBasic.png"));
+			Main.class.getResource("/images/rankPianoButtonBasic.png"));
 	private ImageIcon rankViolinButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankViolinButtonEntered.png"));
+			Main.class.getResource("/images/rankViolinButtonEntered.png"));
 	private ImageIcon rankViolinButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankViolinButtonBasic.png"));
+			Main.class.getResource("/images/rankViolinButtonBasic.png"));
 	private ImageIcon rankGuitarButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankGuitarButtonEntered.png"));
+			Main.class.getResource("/images/rankGuitarButtonEntered.png"));
 	private ImageIcon rankGuitarButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankGuitarButtonBasic.png"));
+			Main.class.getResource("/images/rankGuitarButtonBasic.png"));
 
 	private ImageIcon rankingButtonBasicImage = new ImageIcon(
-			Main.class.getResource("../images/rankingButtonBasic.png"));
+			Main.class.getResource("/images/rankingButtonBasic.png"));
 	private ImageIcon rankingButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/rankingButtonEntered.png"));
+			Main.class.getResource("/images/rankingButtonEntered.png"));
 
 	private ImageIcon pianoButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/pianoButtonEntered.png"));
-	private ImageIcon pianoButtonBasicImage = new ImageIcon(Main.class.getResource("../images/pianoButtonBasic.png"));
+			Main.class.getResource("/images/pianoButtonEntered.png"));
+	private ImageIcon pianoButtonBasicImage = new ImageIcon(Main.class.getResource("/images/pianoButtonBasic.png"));
 	private ImageIcon violinButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/violinButtonEntered.png"));
-	private ImageIcon violinButtonBasicImage = new ImageIcon(Main.class.getResource("../images/violinButtonBasic.png"));
+			Main.class.getResource("/images/violinButtonEntered.png"));
+	private ImageIcon violinButtonBasicImage = new ImageIcon(Main.class.getResource("/images/violinButtonBasic.png"));
 	private ImageIcon guitarButtonEnteredImage = new ImageIcon(
-			Main.class.getResource("../images/guitarButtonEntered.png"));
-	private ImageIcon guitarButtonBasicImage = new ImageIcon(Main.class.getResource("../images/guitarButtonBasic.png"));
+			Main.class.getResource("/images/guitarButtonEntered.png"));
+	private ImageIcon guitarButtonBasicImage = new ImageIcon(Main.class.getResource("/images/guitarButtonBasic.png"));
 
-	private Image background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
-	private Image highScoreBackgroundImage = new ImageIcon(Main.class.getResource("../images/highScoreBackground.png")).getImage();
-	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("../images/menuBar.png")));
+	private Image background = new ImageIcon(Main.class.getResource("/images/IntroBackground(title).jpg")).getImage();
+	private Image highScoreBackgroundImage = new ImageIcon(Main.class.getResource("/images/highScoreBackground.png")).getImage();
+	private JLabel menuBar = new JLabel(new ImageIcon(Main.class.getResource("/images/menubar.png")));
 
 	private JButton exitButton = new JButton(exitButtonBasicImage);
 	private JButton startButton = new JButton(startButtonBasicImage);
@@ -1167,9 +1167,9 @@ public class RhythmOrchestra extends JFrame{
 	public void selectTrack(int nowSelected) {
 		if (selectedMusic != null)
 			selectedMusic.close();
-		titleImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getTitleImage()))
+		titleImage = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getTitleImage()))
 				.getImage();
-		selectedImage = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getStartImage()))
+		selectedImage = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getStartImage()))
 				.getImage();
 		selectedMusic = new Music(trackList.get(nowSelected).getStartMusic(), true);
 		selectedMusic.start();
@@ -1203,7 +1203,7 @@ public class RhythmOrchestra extends JFrame{
 
 	// 피아노 버튼 선택 함수
 	public void selectPiano() {
-		background = new ImageIcon(Main.class.getResource("../images/pianoGameImage.jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/pianoGameImage.jpg")).getImage();
 		if (nowSelected == 1 || nowSelected == 2)
 			nowSelected = 0;
 		else if (nowSelected == 4 || nowSelected == 5)
@@ -1215,7 +1215,7 @@ public class RhythmOrchestra extends JFrame{
 
 	// 바이올린 선택 버튼 함수
 	public void selectViolin() {
-		background = new ImageIcon(Main.class.getResource("../images/violinGameImage.jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/violinGameImage.jpg")).getImage();
 		if (nowSelected == 0 || nowSelected == 2)
 			nowSelected = 1;
 		else if (nowSelected == 3 || nowSelected == 5)
@@ -1227,7 +1227,7 @@ public class RhythmOrchestra extends JFrame{
 
 	// 기타 선택 버튼 함수
 	public void selectGuitar() {
-		background = new ImageIcon(Main.class.getResource("../images/guitarGameImage.jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/guitarGameImage.jpg")).getImage();
 		if (nowSelected == 0 || nowSelected == 1)
 			nowSelected = 2;
 		else if (nowSelected == 3 || nowSelected == 4)
@@ -1256,7 +1256,7 @@ public class RhythmOrchestra extends JFrame{
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
 		guitarButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+		background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		backButton.setVisible(true);
 		isGameScreen = true;
@@ -1291,7 +1291,7 @@ public class RhythmOrchestra extends JFrame{
 			highScoreHardButton.setVisible(true);
 			logoutButton.setVisible(true);
 		}
-		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+		background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		backButton.setVisible(false);
 		selectTrack(nowSelected);
@@ -1309,7 +1309,7 @@ public class RhythmOrchestra extends JFrame{
 		loginpassButton.setVisible(false);
 		signupButton.setVisible(false);
 		backloginButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+		background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		isMainScreen = true;
 		backStartButton.setVisible(true);
@@ -1339,7 +1339,7 @@ public class RhythmOrchestra extends JFrame{
 		confirmpw.setVisible(false);
 		signuppassButton.setVisible(false);
 		backsignupButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/introBackground(login).jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/introBackground(login).jpg")).getImage();
 		tfid.setVisible(true);
 		tfpw.setVisible(true);
 		loginpassButton.setVisible(true);
@@ -1365,7 +1365,7 @@ public class RhythmOrchestra extends JFrame{
 				loginpassButton.setVisible(false);
 				signupButton.setVisible(false);
 				backloginButton.setVisible(false);
-				background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+				background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 						.getImage();
 				isMainScreen = true;
 				leftButton.setVisible(true);
@@ -1454,7 +1454,7 @@ public class RhythmOrchestra extends JFrame{
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
 		guitarButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/IntroBackground(title).jpg")).getImage();
 		startButton.setVisible(true);
 		quitButton.setVisible(true);
 		loginButton.setVisible(true);
@@ -1470,7 +1470,7 @@ public class RhythmOrchestra extends JFrame{
 		loginpassButton.setVisible(false);
 		signupButton.setVisible(false);
 		backloginButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/introBackground(signup).jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/introBackground(signup).jpg")).getImage();
 		newid.setVisible(true);
 		newpw.setVisible(true);
 		confirmpw.setVisible(true);
@@ -1506,7 +1506,7 @@ public class RhythmOrchestra extends JFrame{
 		loginpassButton.setVisible(false);
 		signupButton.setVisible(false);
 		backloginButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/IntroBackground(title).jpg")).getImage();
 		startButton.setVisible(true);
 		quitButton.setVisible(true);
 		loginButton.setVisible(true);
@@ -1526,7 +1526,7 @@ public class RhythmOrchestra extends JFrame{
 		violinButton.setVisible(false);
 		guitarButton.setVisible(false);
 		backStartButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/introBackground(title).jpg")).getImage();
+		background = new ImageIcon(Main.class.getResource("/images/IntroBackground(title).jpg")).getImage();
 		startButton.setVisible(true);
 		quitButton.setVisible(true);
 		loginButton.setVisible(true);
@@ -1551,7 +1551,7 @@ public class RhythmOrchestra extends JFrame{
 		pianoButton.setVisible(false);
 		violinButton.setVisible(false);
 		guitarButton.setVisible(false);
-		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+		background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		backRankingButton.setVisible(true);
 		rankEasyButton.setVisible(true);
@@ -1590,7 +1590,7 @@ public class RhythmOrchestra extends JFrame{
 			highScoreEasyButton.setVisible(true);
 			highScoreHardButton.setVisible(true);
 		}
-		background = new ImageIcon(Main.class.getResource("../images/" + trackList.get(nowSelected).getGameImage()))
+		background = new ImageIcon(Main.class.getResource("/images/" + trackList.get(nowSelected).getGameImage()))
 				.getImage();
 		backRankingButton.setVisible(false);
 		selectTrack(nowSelected);
